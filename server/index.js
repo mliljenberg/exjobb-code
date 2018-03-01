@@ -10,9 +10,20 @@ const isDev = process.env.NODE_ENV !== 'production';
 const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
 const resolve = require('path').resolve;
 const app = express();
+const mysql = require('mysql');
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
+app.use('/test', (req, res) => {
+  // console.info('request: ', req);ß
+  // console.info('res: ', res);
+  const sql = "INSERT INTO test (firstname, lastname) VALUES ('Testar', 'testsson')";
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    console.info('1 record inserted', result);
+  });
+  res.send({ text: 'yey fungerar!' });
+});
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
@@ -44,3 +55,16 @@ app.listen(port, host, (err) => {
     logger.appStarted(port, prettyHost);
   }
 });
+
+const con = mysql.createConnection({
+  host: 'testar.cmqlklxykudc.us-east-1.rds.amazonaws.com',
+  user: 'Marcus',
+  password: 'marcusdb',
+  database: 'testing',
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
