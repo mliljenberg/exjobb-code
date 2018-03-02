@@ -17,7 +17,7 @@ const mysql = require('mysql');
 app.use('/test', (req, res) => {
   // console.info('request: ', req);ß
   // console.info('res: ', res);
-  const sql = "INSERT INTO test (firstname, lastname) VALUES ('Testar', 'testsson')";
+  const sql = 'INSERT INTO test (firstname, lastname) VALUES ("Testar", "testsson")';
   con.query(sql, (err, result) => {
     if (err) throw err;
     console.info('1 record inserted', result);
@@ -57,14 +57,13 @@ app.listen(port, host, (err) => {
 });
 
 const con = mysql.createConnection({
-  host: 'testar.cmqlklxykudc.us-east-1.rds.amazonaws.com',
-  user: 'Marcus',
-  password: 'marcusdb',
+  host: 'localhost',
+  user: 'root',
+  password: '',
   database: 'testing',
 });
 
-con.connect(function(err) {
+con.connect((err) => {
   if (err) throw err;
-  console.log("Connected!");
 });
 

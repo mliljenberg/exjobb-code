@@ -1,11 +1,11 @@
-import { take, call, put, select } from 'redux-saga/effects';
+import { take, call, put } from 'redux-saga/effects';
 import request from 'utils/request';
 
 // Individual exports for testing
 
 import { SEND_TO_DB } from './constants';
 
-import {saveToDB} from "./actions";
+import { saveToDB } from './actions';
 
 export default function* dbTest() {
   console.log('verkar som sagan startas...');
