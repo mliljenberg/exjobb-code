@@ -5,19 +5,33 @@
 */
 
 import React from 'react';
-// import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
+const Wrapper = styled.div`
+font-size: small;
+`;
+const Paragraph = styled.p`
+margin:0.5em;
+padding:0;
+:hover {
+color:dodgerblue;
+cursor: pointer;
+}
+`;
 
 class Qqtext extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
-      </div>
+      <Wrapper>
+        {this.props.text.map((line) => (<Paragraph>{line}</Paragraph>))}
+      </Wrapper>
     );
   }
 }
 
 Qqtext.propTypes = {
+  text: PropTypes.array,
 
 };
 

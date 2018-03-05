@@ -8,6 +8,6 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.components.Qqheader.header',
-    defaultMessage: 'This is the Qqheader component !',
+    defaultMessage: 'This is the Qqheader component {hej} !:bla:blä',
   },
 });

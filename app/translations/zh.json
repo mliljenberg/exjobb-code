@@ -1,5 +1,22 @@
 {
-  "app.components.HomePage.header": "chinese stuff",
-  "app.components.HyperLink.header": "chinese stuff",
-  "app.components.NotFoundPage.header": "chinese stuff"
+  "app.components.BbcbigImage.header": "",
+  "app.components.BbccategoryHeader.header": "",
+  "app.components.Bbcfooter.header": "",
+  "app.components.Bbcheader.header": "",
+  "app.components.BbcimageRow.header": "",
+  "app.components.BbcmainBigNews.header": "",
+  "app.components.BbcmainNormalNews.header": "",
+  "app.components.BbcmainSmallGridNews.header": "",
+  "app.components.Bbcshare.header": "",
+  "app.components.BbcsmallCategory.header": "",
+  "app.components.HomePage.header": "",
+  "app.components.HyperLink.header": "",
+  "app.components.NotFoundPage.header": "",
+  "app.components.PageTest.header": "",
+  "app.components.Qqheader.header": "chinese stuff",
+  "app.components.QqsocialMedia.header": "",
+  "app.containers.Bbc.header": "",
+  "app.containers.Qq.header": "",
+  "app.containers.Sus.header": "",
+  "app.containers.Test.header": ""
 }

@@ -1,1 +1,22 @@
-[]
+{
+  "app.components.BbcbigImage.header": "This is the BbcbigImage component !",
+  "app.components.BbccategoryHeader.header": "This is the BbccategoryHeader component !",
+  "app.components.Bbcfooter.header": "This is the Bbcfooter component !",
+  "app.components.Bbcheader.header": "This is the Bbcheader component !",
+  "app.components.BbcimageRow.header": "This is the BbcimageRow component !",
+  "app.components.BbcmainBigNews.header": "This is the BbcmainBigNews component !",
+  "app.components.BbcmainNormalNews.header": "This is the BbcmainNormalNews component !",
+  "app.components.BbcmainSmallGridNews.header": "This is the BbcmainSmallGridNews component !",
+  "app.components.Bbcshare.header": "This is the Bbcshare component !",
+  "app.components.BbcsmallCategory.header": "This is the BbcsmallCategory component !",
+  "app.components.HomePage.header": "This is HomePage component!",
+  "app.components.HyperLink.header": "This is the HyperLink component !",
+  "app.components.NotFoundPage.header": "This is NotFoundPage component!",
+  "app.components.PageTest.header": "This is the PageTest component !",
+  "app.components.Qqheader.header": "This is the Qqheader component {hej} !:bla:blä",
+  "app.components.QqsocialMedia.header": "This is the QqsocialMedia component !",
+  "app.containers.Bbc.header": "This is Bbc container !",
+  "app.containers.Qq.header": "This is Qq container !",
+  "app.containers.Sus.header": "This is Sus container !",
+  "app.containers.Test.header": "This is Test container !"
+}

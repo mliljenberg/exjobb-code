@@ -29,6 +29,7 @@ import BBCSmallCategory from '../../components/BbcsmallCategory';
 import BBCRatingCategory from '../../components/BbcratingCategory';
 import BBCShare from '../../components/Bbcshare';
 import BBCFooter from '../../components/Bbcfooter';
+import PageTest from '../../components/PageTest';
 
 
 const PageWrapper = styled.div`
@@ -98,6 +99,7 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
         </PageWrapper>
         <BBCShare></BBCShare>
         <BBCFooter></BBCFooter>
+        <PageTest />
         <FormattedMessage {...messages.header} />
       </div>
     );
