@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-font-size: small;
+font-size: smaller;
 `;
 const Paragraph = styled.p`
 margin:0.5em;
@@ -24,7 +24,7 @@ class Qqtext extends React.Component { // eslint-disable-line react/prefer-state
   render() {
     return (
       <Wrapper>
-        {this.props.text.map((line) => (<Paragraph>{line}</Paragraph>))}
+        {this.props.text.map((line) => (<Paragraph key={line}>{line}</Paragraph>))}
       </Wrapper>
     );
   }

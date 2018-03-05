@@ -13,7 +13,7 @@
   "app.components.HyperLink.header": "This is the HyperLink component !",
   "app.components.NotFoundPage.header": "This is NotFoundPage component!",
   "app.components.PageTest.header": "This is the PageTest component !",
-  "app.components.Qqheader.header": "This is the Qqheader component {hej} !:bla:blä",
+  "app.components.Qqheader.header": "This is the Qqheader component!:bla:blä",
   "app.components.QqsocialMedia.header": "This is the QqsocialMedia component !",
   "app.containers.Bbc.header": "This is Bbc container !",
   "app.containers.Qq.header": "This is Qq container !",

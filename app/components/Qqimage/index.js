@@ -15,8 +15,8 @@ flex-direction: row;
  `;
 const Img = styled.div`
 background-color: red;
-width: 100px;
-height: 75px;
+min-width: 100px;
+min-height: 75px;
 margin:10px;
 :hover{
 cursor: pointer;

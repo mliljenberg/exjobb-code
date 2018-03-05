@@ -25,6 +25,7 @@ import QQText from '../../components/Qqtext';
 import QQSeveralImages from '../../components/QqseveralImages';
 import QQSocialMedia from '../../components/QqsocialMedia';
 import PageTest from '../../components/PageTest';
+import zhContent from './content';
 
 
 const MainWrapper = styled.div`
@@ -56,19 +57,20 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
 
           <MainWrapper>
             <LeftColumn>
-              <QQHeaderColumns />
-              <QQText />
-              <QQImage />
-              <QQText />
-              <QQImage />
-              <QQText />
+              <QQHeaderColumns text={zhContent.left_top_column.header1} />
+              <QQText text={zhContent.left_top_column.text1} />
+              <QQImage src={zhContent.left_top_column.img1.src} text={zhContent.left_top_column.img1.text} />
+              <QQText text={zhContent.left_top_column.text2} />
+              <QQImage src={zhContent.left_top_column.img2.src} text={zhContent.left_top_column.img2.text} />
+              <QQText text={zhContent.left_top_column.text3} />
             </LeftColumn>
             <MiddleColumn>
+              <QQHeaderColumns text={zhContent.mid_top_column.header1} />
+              <QQText text={zhContent.mid_top_column.text1} />
+              <QQSeveralImages src1={zhContent.mid_top_column.many_img1.src1} src2={zhContent.mid_top_column.many_img1.src1} src2Text={zhContent.mid_top_column.many_img1.src2_text} src1Text={zhContent.mid_top_column.many_img1.src2_text} />
               <QQText />
-              <QQSeveralImages />
-              <QQText />
-              <QQSeveralImages />
-              <QQText />
+              <QQSeveralImages src1={zhContent.mid_top_column.many_img2.src1} src2={zhContent.mid_top_column.many_img2.src1} src2Text={zhContent.mid_top_column.many_img2.src2_text} src1Text={zhContent.mid_top_column.many_img2.src2_text} />
+              <QQText text={zhContent.mid_top_column.text2} />
             </MiddleColumn>
             <CommercialColumn></CommercialColumn>
           </MainWrapper>
