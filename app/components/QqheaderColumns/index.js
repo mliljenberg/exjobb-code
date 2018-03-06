@@ -9,17 +9,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  border-color: dodgerblue;
+  border-color: #1E88E5;
   border-top-style: solid;
   border-width: 1px;
   margin-bottom: 1em;
 `;
 const Header = styled.a`
-margin:10px;
-color:dodgerblue;
-:hover {
-cursor: pointer;
-}
+  margin:10px;
+  color: #1E88E5;
+  :hover {
+  cursor: pointer;
+  }
 `;
 
 

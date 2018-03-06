@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 const MainWrapper = styled.div`
   margin-top: 1em;
-  border-color: dodgerblue;
+  border-color: #1E88E5;
   border-top-style: solid;
   border-width: 1px;
 `;
@@ -18,14 +18,11 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const Img = styled.div`
-  background-color: red;
+const Img = styled.img`
   width: 145px;
   height: 80px;
   margin: 10px;
   margin-bottom:2px;
-  
-  
   :hover{
   cursor: pointer;
   }
@@ -40,7 +37,7 @@ margin-bottom: 1em;
 const Header = styled.div`
 margin: 10px;
 margin-bottom: 0px;
-color:dodgerblue;
+color:#1E88E5;
 :hover {
 cursor: pointer;
 }
@@ -55,11 +52,11 @@ class QqseveralImages extends React.Component { // eslint-disable-line react/pre
         <Header>{this.props.header}</Header>
         <Wrapper>
           <div>
-            <Img>{this.props.src1}</Img>
+            <Img src={this.props.src1} />
             <Description>{this.props.src1Text}</Description>
           </div>
           <div>
-            <Img>{this.props.src2}</Img>
+            <Img src={this.props.src2} />
             <Description>{this.props.src2Text}</Description>
           </div>
         </Wrapper>

@@ -28,7 +28,7 @@ import PageTest from '../../components/PageTest';
 import { enContent, zhContent } from './content';
 
 const BackWrapper = styled.div`
-  background: linear-gradient(red, red, white);
+  background: linear-gradient(#F44336, #EF5350, white);
   //background: linear-gradient(to top,rgba(255,0,0,0), rgba(255,0,0,1));
   margin-top: 0px;
   padding-top: 3em;
@@ -42,7 +42,7 @@ const MainWrapper = styled.div`
 const PageWrapper = styled.div`
  width: 82vw;
  margin-left: 9vw;
- background-color: white;
+ background-color: #fafafa;
 `;
 const MainLeftColumn = styled.div`
   width: 350px;
@@ -73,8 +73,15 @@ const RightColumn = styled.div`
 `;
 const CommercialColumn = styled.div`
 `;
+const Banner = styled.img`
+  width: 750px;
+  height: 75px;
+  margin-top: 10px;
+  margin-left: 17px;
+  background-color: black;
+`;
 let content = {};
-const zh = false;
+const zh = true;
 
 /**
  * Se till att spara varje text columns medelanden i en lista som skickas in.
@@ -93,9 +100,11 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
   render() {
     return (
       <BackWrapper>
+        <QQSocialMedia />
 
         <PageWrapper>
           <QQHeader zh={zh} box1={content.main_header.box1} box2={content.main_header.box2} box3={content.main_header.box3} box4={content.main_header.box4} box5={content.main_header.box5} box6={content.main_header.box6} />
+          <Banner />
           <MainWrapper>
             <MainLeftColumn>
               <QQHeaderColumns id={1} text={content.left_top_column.header1} />
@@ -108,13 +117,14 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
             <MainMiddleColumn>
               <QQHeaderColumns id={7} text={content.mid_top_column.header1} />
               <QQText id={8} text={content.mid_top_column.text1} />
-              <QQSeveralImages id={9} header={content.mid_top_column.many_img1.header} src1={content.mid_top_column.many_img1.src1} src2={content.mid_top_column.many_img1.src1} src2Text={content.mid_top_column.many_img1.src2_text} src1Text={content.mid_top_column.many_img1.src1_text} />
+              <QQSeveralImages id={9} header={content.mid_top_column.many_img1.header} src1={content.mid_top_column.many_img1.src1} src2={content.mid_top_column.many_img1.src2} src2Text={content.mid_top_column.many_img1.src2_text} src1Text={content.mid_top_column.many_img1.src1_text} />
               <QQText id={10} text={content.mid_top_column.text2} />
-              <QQSeveralImages id={11} header={content.mid_top_column.many_img2.header} src1={content.mid_top_column.many_img2.src1} src2={content.mid_top_column.many_img2.src1} src2Text={content.mid_top_column.many_img2.src2_text} src1Text={content.mid_top_column.many_img2.src1_text} />
+              <QQSeveralImages id={11} header={content.mid_top_column.many_img2.header} src1={content.mid_top_column.many_img2.src1} src2={content.mid_top_column.many_img2.src2} src2Text={content.mid_top_column.many_img2.src2_text} src1Text={content.mid_top_column.many_img2.src1_text} />
               <QQText id={12} text={content.mid_top_column.text3} />
             </MainMiddleColumn>
             <CommercialColumn></CommercialColumn>
           </MainWrapper>
+          <Banner />
 
           <CategoryWrapper>
             <LeftColumn>
@@ -152,7 +162,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
           </CategoryWrapper>
 
         </PageWrapper>
-        <QQSocialMedia />
+
         <PageTest />
         <FormattedMessage {...messages.header} />
       </BackWrapper>

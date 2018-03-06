@@ -13,10 +13,11 @@ const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
  `;
-const Img = styled.div`
-background-color: red;
+const Img = styled.img`
 min-width: 100px;
 min-height: 75px;
+max-width: 100px;
+max-height: 75px;
 margin:10px;
 margin-left:5px;
 :hover{
@@ -24,7 +25,7 @@ cursor: pointer;
 }
 `;
 const Text = styled.p`
-color: dodgerblue;
+color: #1E88E5;
 font-size:medium;
 :hover{
 cursor: pointer;
@@ -36,7 +37,7 @@ class Qqimage extends React.Component { // eslint-disable-line react/prefer-stat
     console.log(this.props.id);
     return (
       <Wrapper>
-        <Img>{this.props.src}</Img>
+        <Img src={this.props.src} />
         <Text>{this.props.text}</Text>
       </Wrapper>
     );
