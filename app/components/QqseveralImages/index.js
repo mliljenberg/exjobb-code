@@ -18,6 +18,7 @@ const Img = styled.div`
   height: 80px;
   margin: 10px;
   margin-bottom:2px;
+  margin-top:2em;
   
   :hover{
   cursor: pointer;
@@ -27,12 +28,14 @@ const Description = styled.div`
 font-size: small;
 margin-left: 12px;
 margin-top: 0px;
+margin-bottom: 1em;
 
 `;
 
 
 class QqseveralImages extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    console.log(this.props.id);
     return (
       <Wrapper>
         <div>
@@ -49,10 +52,11 @@ class QqseveralImages extends React.Component { // eslint-disable-line react/pre
 }
 
 QqseveralImages.propTypes = {
-  src1: PropTypes.string,
-  src1Text: PropTypes.string,
-  src2: PropTypes.string,
-  src2Text: PropTypes.string,
+  src1: PropTypes.string.isRequired,
+  src1Text: PropTypes.string.isRequired,
+  src2: PropTypes.string.isRequired,
+  src2Text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default QqseveralImages;

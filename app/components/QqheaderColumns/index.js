@@ -9,9 +9,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-border-color: dodgerblue;
-border-top-style: solid;
-border-width: 1px;
+  border-color: dodgerblue;
+  border-top-style: solid;
+  border-width: 1px;
+  margin-bottom: 1em;
 `;
 const Header = styled.a`
 margin:10px;
@@ -24,6 +25,7 @@ cursor: pointer;
 
 class QqheaderColumns extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    console.log(this.props.id);
     return (
       <Wrapper>
         <Header>{this.props.text}</Header>
@@ -33,7 +35,8 @@ class QqheaderColumns extends React.Component { // eslint-disable-line react/pre
 }
 
 QqheaderColumns.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default QqheaderColumns;

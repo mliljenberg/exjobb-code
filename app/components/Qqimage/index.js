@@ -18,6 +18,7 @@ background-color: red;
 min-width: 100px;
 min-height: 75px;
 margin:10px;
+margin-left:5px;
 :hover{
 cursor: pointer;
 }
@@ -32,6 +33,7 @@ cursor: pointer;
 
 class Qqimage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    console.log(this.props.id);
     return (
       <Wrapper>
         <Img>{this.props.src}</Img>
@@ -42,8 +44,9 @@ class Qqimage extends React.Component { // eslint-disable-line react/prefer-stat
 }
 
 Qqimage.propTypes = {
-  src: PropTypes.string,
-  text: PropTypes.string,
+  src: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Qqimage;
