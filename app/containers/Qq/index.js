@@ -25,10 +25,11 @@ import QQText from '../../components/Qqtext';
 import QQSeveralImages from '../../components/QqseveralImages';
 import QQSocialMedia from '../../components/QqsocialMedia';
 import PageTest from '../../components/PageTest';
-import { enContent } from './content';
+import { enContent, zhContent } from './content';
 
 const BackWrapper = styled.div`
-  background-color: red;
+  background: linear-gradient(red, red, white);
+  //background: linear-gradient(to top,rgba(255,0,0,0), rgba(255,0,0,1));
   margin-top: 0px;
   padding-top: 3em;
   padding-bottom: 3em;
@@ -72,7 +73,8 @@ const RightColumn = styled.div`
 `;
 const CommercialColumn = styled.div`
 `;
-let zhContent = {};
+let content = {};
+const zh = false;
 
 /**
  * Se till att spara varje text columns medelanden i en lista som skickas in.
@@ -82,66 +84,70 @@ let zhContent = {};
 export class Qq extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    zhContent = enContent;
+    if (zh) {
+      content = zhContent;
+    } else {
+      content = enContent;
+    }
   }
   render() {
     return (
       <BackWrapper>
 
         <PageWrapper>
-          <QQHeader box1={zhContent.main_header.box1} box2={zhContent.main_header.box2} box3={zhContent.main_header.box3} box4={zhContent.main_header.box4} box5={zhContent.main_header.box5} box6={zhContent.main_header.box6} />
+          <QQHeader zh={zh} box1={content.main_header.box1} box2={content.main_header.box2} box3={content.main_header.box3} box4={content.main_header.box4} box5={content.main_header.box5} box6={content.main_header.box6} />
           <MainWrapper>
             <MainLeftColumn>
-              <QQHeaderColumns id={1} text={zhContent.left_top_column.header1} />
-              <QQText id={2} text={zhContent.left_top_column.text1} />
-              <QQImage id={3} src={zhContent.left_top_column.img1.src} text={zhContent.left_top_column.img1.text} />
-              <QQText id={4} text={zhContent.left_top_column.text2} />
-              <QQImage id={5} src={zhContent.left_top_column.img2.src} text={zhContent.left_top_column.img2.text} />
-              <QQText id={6} text={zhContent.left_top_column.text3} />
+              <QQHeaderColumns id={1} text={content.left_top_column.header1} />
+              <QQText id={2} text={content.left_top_column.text1} />
+              <QQImage id={3} src={content.left_top_column.img1.src} text={content.left_top_column.img1.text} />
+              <QQText id={4} text={content.left_top_column.text2} />
+              <QQImage id={5} src={content.left_top_column.img2.src} text={content.left_top_column.img2.text} />
+              <QQText id={6} text={content.left_top_column.text3} />
             </MainLeftColumn>
             <MainMiddleColumn>
-              <QQHeaderColumns id={7} text={zhContent.mid_top_column.header1} />
-              <QQText id={8} text={zhContent.mid_top_column.text1} />
-              <QQSeveralImages id={9} src1={zhContent.mid_top_column.many_img1.src1} src2={zhContent.mid_top_column.many_img1.src1} src2Text={zhContent.mid_top_column.many_img1.src2_text} src1Text={zhContent.mid_top_column.many_img1.src2_text} />
-              <QQText id={10} text={zhContent.mid_top_column.text2} />
-              <QQSeveralImages id={11} src1={zhContent.mid_top_column.many_img2.src1} src2={zhContent.mid_top_column.many_img2.src1} src2Text={zhContent.mid_top_column.many_img2.src2_text} src1Text={zhContent.mid_top_column.many_img2.src2_text} />
-              <QQText id={12} text={zhContent.mid_top_column.text3} />
+              <QQHeaderColumns id={7} text={content.mid_top_column.header1} />
+              <QQText id={8} text={content.mid_top_column.text1} />
+              <QQSeveralImages id={9} header={content.mid_top_column.many_img1.header} src1={content.mid_top_column.many_img1.src1} src2={content.mid_top_column.many_img1.src1} src2Text={content.mid_top_column.many_img1.src2_text} src1Text={content.mid_top_column.many_img1.src1_text} />
+              <QQText id={10} text={content.mid_top_column.text2} />
+              <QQSeveralImages id={11} header={content.mid_top_column.many_img2.header} src1={content.mid_top_column.many_img2.src1} src2={content.mid_top_column.many_img2.src1} src2Text={content.mid_top_column.many_img2.src2_text} src1Text={content.mid_top_column.many_img2.src1_text} />
+              <QQText id={12} text={content.mid_top_column.text3} />
             </MainMiddleColumn>
             <CommercialColumn></CommercialColumn>
           </MainWrapper>
 
           <CategoryWrapper>
             <LeftColumn>
-              <QQHeaderColumns id={13} text={zhContent.left_category_column1.header} />
-              <QQImage id={14} src={zhContent.left_category_column1.img.src} text={zhContent.left_category_column1.img.text} />
-              <QQText id={15} text={zhContent.left_category_column1.text} />
+              <QQHeaderColumns id={13} text={content.left_category_column1.header} />
+              <QQImage id={14} src={content.left_category_column1.img.src} text={content.left_category_column1.img.text} />
+              <QQText id={15} text={content.left_category_column1.text} />
             </LeftColumn>
             <MiddleColumn>
-              <QQHeaderColumns id={16} text={zhContent.mid_category_column1.header} />
-              <QQImage id={17} src={zhContent.mid_category_column1.img.src} text={zhContent.mid_category_column1.img.text} />
-              <QQText id={18} text={zhContent.mid_category_column1.text} />
+              <QQHeaderColumns id={16} text={content.mid_category_column1.header} />
+              <QQImage id={17} src={content.mid_category_column1.img.src} text={content.mid_category_column1.img.text} />
+              <QQText id={18} text={content.mid_category_column1.text} />
             </MiddleColumn>
             <RightColumn>
-              <QQHeaderColumns id={19} text={zhContent.right_category_column1.header} />
-              <QQImage id={20} src={zhContent.right_category_column1.img.src} text={zhContent.right_category_column1.img.text} />
-              <QQText id={21} text={zhContent.right_category_column1.text} />
+              <QQHeaderColumns id={19} text={content.right_category_column1.header} />
+              <QQImage id={20} src={content.right_category_column1.img.src} text={content.right_category_column1.img.text} />
+              <QQText id={21} text={content.right_category_column1.text} />
             </RightColumn>
           </CategoryWrapper>
 
           <CategoryWrapper>
             <LeftColumn>
-              <QQHeaderColumns id={22} text={zhContent.left_category_column2.header} />
-              <QQImage id={23} src={zhContent.left_category_column2.img.src} text={zhContent.left_category_column2.img.text} />
-              <QQText id={24} text={zhContent.left_category_column2.text} />
+              <QQHeaderColumns id={22} text={content.left_category_column2.header} />
+              <QQImage id={23} src={content.left_category_column2.img.src} text={content.left_category_column2.img.text} />
+              <QQText id={24} text={content.left_category_column2.text} />
             </LeftColumn>
             <MiddleColumn>
-              <QQHeaderColumns id={25} text={zhContent.mid_category_column1.header} />
-              <QQText id={26} text={zhContent.mid_category_column2.text} />
+              <QQHeaderColumns id={25} text={content.mid_category_column1.header} />
+              <QQText id={26} text={content.mid_category_column2.text} />
             </MiddleColumn>
             <RightColumn>
-              <QQHeaderColumns id={27} text={zhContent.right_category_column2.header} />
-              <QQImage id={28} src={zhContent.right_category_column2.img.src} text={zhContent.right_category_column2.img.text} />
-              <QQText id={29} text={zhContent.right_category_column2.text} />
+              <QQHeaderColumns id={27} text={content.right_category_column2.header} />
+              <QQImage id={28} src={content.right_category_column2.img.src} text={content.right_category_column2.img.text} />
+              <QQText id={29} text={content.right_category_column2.text} />
             </RightColumn>
           </CategoryWrapper>
 

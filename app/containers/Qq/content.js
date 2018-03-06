@@ -36,10 +36,10 @@ export const zhContent = {
   mid_top_column: {
     header1: '今日话题',
     text1: ['海底捞不再允许自带食材，是谁毁了这样的好事', '唐伯虎是哪年出生的？这样的答题游戏能益智吗？', '婚姻补贴是馅饼还是陷阱，不妨先看清再决定', '物流“分钟级配送”揭开了新零售的秘密', '“大雪压塌公交站台”的现代化隐喻', '质疑筹款收管理费，是误解也是期待', '边抽烟边回应“城管抽梯”，姿态太难看'],
-    many_img1: { src1: 'image link', src1_text: '吴秀波配音表白黑猩猩', src2: 'image link', src2_text: '打工女孩哭诉生活不易' },
+    many_img1: { header: '今日热门视频', src1: 'image link', src1_text: '吴秀波配音表白黑猩猩', src2: 'image link', src2_text: '打工女孩哭诉生活不易' },
     header2: '',
     text2: ['情侣违规进山女友失联 男友获救：她挂在崖壁上', '母亲坐高铁忘带手机 儿子点外卖传话：妈妈别怕', '盘点历届超级碗巨星阵容 除火星哥麦当娜还有他', '7岁男孩挣下十几万存款 6岁男孩立志做爸妈的腿', '冬奥会中国荣耀时刻盘点 科比全明星TOP10集锦', '吴亦凡献歌美国超级碗 春运神曲播放量超3000万'],
-    many_img2: { src1: 'image link', src1_text: '工程师返乡种水果又考博', src2: 'image link', src2_text: '真美人无惧皱纹' },
+    many_img2: { header: '今日图话', src1: 'image link', src1_text: '工程师返乡种水果又考博', src2: 'image link', src2_text: '真美人无惧皱纹' },
     text3: ['藏宝图|   百年沉船中发现价值3.2亿黄金', '体坛|   莎娃白衣黑裙出街 黑超遮面女神范', '入流|   为什么非洲没有高级餐厅', '尤物|   马伊琍颜值身材一直在线，衣品更不容小觑', '车族|   一大波新车正式亮相 瑞虎8 4月开售', '谷雨|   了不起的茅侃侃：自杀后有人后悔没借他钱', '鹅眼|   这个国家没红绿灯，20年前才有电视网络', '益视频|   -1℃寒夜郑州进城民工睡地下通道'],
   },
   right_top_column: {
@@ -90,16 +90,16 @@ export const enContent = {
       row2: ['Fashion', 'Health', 'Clothes'],
     },
     box4: {
-      row1: ['Cars', 'Model', 'Shopping'],
-      row2: ['House', 'Home', 'Appliances'],
+      row1: ['Cars', 'Shopping', 'Model'],
+      row2: ['House', 'Furniture', 'Home'],
     },
     box5: {
       row1: ['Tech', 'Digital', 'Phone'],
       row2: ['Games', 'Child', 'Console'],
     },
     box6: {
-      row1: ['Education', 'Schools', 'Go abroad'],
-      row2: ['Culture', 'Arts', 'Literature'],
+      row1: ['Schools', 'Education', 'Abroad'],
+      row2: ['Culture', 'Literature', 'Arts'],
     },
   },
   left_top_column: {
@@ -113,10 +113,10 @@ export const enContent = {
   mid_top_column: {
     header1: 'Today’s top topics',
     text1: ['Fishermen are no longer allowed to bring their own baits', 'Tang Bohu was born in what year? Can you solve this puzzle?', 'Marriage contracts are traps, you may wish to read them before signing', 'Logistics "minute delivery" reveiled thier new retail secrets.', 'Testiments of survivors frokm Crashed Bus', 'Questioning making fundraising management fees a expectation not a contribution', 'Smoking while responding to police management, This youth is having a bad attitude'],
-    many_img1: { src1: 'image link', src1_text: 'Wu Xiubo voiceovers chimpanzees', src2: 'image link', src2_text: 'Working girl crying: “life is not easy”' },
+    many_img1: { header: 'Today’s Top videos', src1: 'image link', src1_text: 'Wu Xiubo voiceovers chimpanzees', src2: 'image link', src2_text: 'Working girl crying: “life is not easy”' },
     header2: 'Today’s Top pictures',
     text2: ['Couple lost in the mountains. Female still lost, Male was rescued: He was hanging off a cliff', 'Mother died on the high-speed rail last cell phone message from son: Mommy do not be afraid', 'Counting the previous Super Bowl superstar teams', '7-year-old boy earns hundreds of thousands determins to financialy support parents ', 'Winter Olympics China always count on gold', 'Wu Yifan sing during the Super Bowl Spring Festival. Over 30 million views.'],
-    many_img2: { src1: 'image link', src1_text: 'Engineers return to the field and test fruit', src2: 'image link', src2_text: 'True beauty don’t fear wrinkles' },
+    many_img2: { header: 'Today’s Top pictures', src1: 'image link', src1_text: 'Engineers return to the field and test fruit', src2: 'image link', src2_text: 'True beauty don’t fear wrinkles' },
     text3: ['Treasure|   Thousands of gold coins found in a century-old shipwreck', 'Sports|   Sharapova back on the street racing scene', 'Food|   Why Africa does not have any fine restaurants', 'Fashon|   Ma Yi Yan figure has been shopping for online clothing web stores should not be underestimated', 'Cars|   A big wave of new cars officially unveiled from Tiggo', 'Shocking|   Mao Kankan: Some people regret after his suicide that they did not borrow money from him', 'History|   There was no traffic light in this country and there was a television network 20 years ago', 'Daily Life|   -1 ℃ cold night city of Zhengzhou imigrant workers sleep in underground passage'],
   },
   right_top_column: {
