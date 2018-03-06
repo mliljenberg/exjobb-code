@@ -25,7 +25,7 @@ import QQText from '../../components/Qqtext';
 import QQSeveralImages from '../../components/QqseveralImages';
 import QQSocialMedia from '../../components/QqsocialMedia';
 import PageTest from '../../components/PageTest';
-import { zhContent } from './content';
+import { enContent } from './content';
 
 const BackWrapper = styled.div`
   background-color: red;
@@ -72,6 +72,7 @@ const RightColumn = styled.div`
 `;
 const CommercialColumn = styled.div`
 `;
+let zhContent = {};
 
 /**
  * Se till att spara varje text columns medelanden i en lista som skickas in.
@@ -81,7 +82,7 @@ const CommercialColumn = styled.div`
 export class Qq extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    console.log(zhContent);
+    zhContent = enContent;
   }
   render() {
     return (

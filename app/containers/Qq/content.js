@@ -31,7 +31,7 @@ export const zhContent = {
     img1: { src: 'image link', text: '四川九寨沟现壮美蓝色冰瀑 犹如天然雕塑' },
     text2: ['NFL-老鹰首夺超级碗 布雷迪致命失误无缘第6冠', '英超-利物浦2-2热刺 萨拉赫2球凯恩点杀绝平', '他们骑摩托车千里返乡 靠手摸发动机取暖', '回家的礼物丨今年春节，你最想带回家的是什么？', '三星太子行贿案二审：李在镕获刑2年半 当庭释放', '朝鲜冬奥艺术团明天赴韩 后勤人员今携乐器先抵达', '中央一号文件：严禁城里人下乡置地盖别墅', '今冬天然气缺口超48亿立方米 气荒如何不再来'],
     img2: { src: 'image link', text: '俄战机飞行员最后时刻疑曝光：高喊“为了兄弟”' },
-    text3: ['云南越狱犯张林苍被判无期 曾当庭自曝“杀人”', '凉山男孩雪中背弟弟 200米落差山路走50分钟', '“超级碗”比赛后美国费城发生爆炸 街上逾10万人', '高铁因等待下连新兵延时十分钟发车 旅客积极响应', '情侣登山事件救援人员：遇难女子男友尽力了', '全球第一白富美恋爱了 不仅是学霸还是马术冠军', '《假如动物会摄影》吴秀波配音“表白”黑猩猩', '苹果收到数百份投诉：iPhone X竟然接不了电话？', '81岁“学霸奶奶”大学毕业：只要学习我就高兴', '纯金字招行定制信用卡限量办理 手慢无', '腾讯新闻向北京伟达中医肿瘤医院公开道歉'],
+    text3: ['云南越狱犯张林苍被判无期 曾当庭自曝“杀人”', '凉山男孩雪中背弟弟 200米落差山路走50分钟', '“超级碗”比赛后美国费城发生爆炸 街上逾10万人', '高铁因等待下连新兵延时十分钟发车 旅客积极响应', '情侣登山事件救援人员：遇难女子男友尽力了', '全球第一白富美恋爱了 不仅是学霸还是马术冠军', '《假如动物会摄影》吴秀波配音“表白”黑猩猩', '苹果收到数百份投诉：iPhone X竟然接不了电话？', '81岁“学霸奶奶”大学毕业：只要学习我就高兴'],
   },
   mid_top_column: {
     header1: '今日话题',
@@ -76,49 +76,80 @@ export const zhContent = {
 
 };
 export const enContent = {
+  main_header: {
+    box1: {
+      row1: ['News', 'Images', 'Military'],
+      row2: ['Finance', 'Security', 'Market'],
+    },
+    box2: {
+      row1: ['Video', 'Popular', 'Variety'],
+      row2: ['Sport', 'NBA', 'CBA'],
+    },
+    box3: {
+      row1: ['Gossip', 'Celebrity', 'Movies'],
+      row2: ['Fashion', 'Health', 'Clothes'],
+    },
+    box4: {
+      row1: ['Cars', 'Model', 'Shopping'],
+      row2: ['House', 'Home', 'Appliances'],
+    },
+    box5: {
+      row1: ['Tech', 'Digital', 'Phone'],
+      row2: ['Games', 'Child', 'Console'],
+    },
+    box6: {
+      row1: ['Education', 'Schools', 'Go abroad'],
+      row2: ['Culture', 'Arts', 'Literature'],
+    },
+  },
   left_top_column: {
-    header1: '',
-    text1: [],
-    img1: { src: 'image link', text: '' },
-    text2: [],
-    img2: { src: 'image link', text: '' },
-    text3: [],
+    header1: 'Highlights',
+    text1: ['Xi Jinping heart of the "three rural" pilot new era of rural rejuvenation', 'Xi Jinping: always think of those who still have difficulties in life of the masses', 'Illustrated Central Documents: The future of these industries is are popular', 'A new proposition to build a modern economic systems', 'This one generation of the last three generations relay that they don’t care about news', 'One hundred Hongtong staff more than half hiding in the United States and Canada ', 'Spring Festival 40 years: getting closer and closer to the home New Year walk grassroots pilot a new journey', 'Investigation on the criminal activities of "New Network Army" paid and extorted for a fee'],
+    img1: { src: 'image link', text: 'Jiuzhaigou, Sichuan is a magnificent natural blue ice waterfall sculpture' },
+    text2: ['NFL-Hawks wins Super Bowl, Brady missed the 6th shot which led to their loss', 'Premiership - Liverpool 2-2 ', 'They ride the motorcycle thousands of miles home by hand touch the engine heating', 'Home gifts丨 Spring Festival this year, what would you most like to bring home?', 'Samsung Heir bribery case second trial: Li Zhaorong 2 and a half years in court released', 'North Korea Winter Olympic Troupe tomorrow to go to South Korea to carry staff to arrive first', 'Goverment Document: Not enough urban people living in the countryside'],
+    img2: { src: 'image link', text: 'Russian fighter pilots last words before blowing himself up with a granade “For my brothers"' },
+    text3: ['Shanghai Prisoner Mike Smith was sentenced in court for murder.', 'A boy in Lingsang falls down a 200 meters drop into the snow', 'More than 100,000 people celebrate on the streets in Philadelphia after the Super Bowl', 'High-speed rail due to wait for the next recruit got delayed 10 minutes. Passengers had a positive response', 'Mountaineering couple rescue workers in stuck in a lavine', 'The animal photograper Wu Xiubo catches the “voice” of chimpanzees', 'Apple received hundreds of complaints: Is the iPhone X uncapable of answering phone calls?', '81-year-old grandma University graduate: “Just learning made me happy”', 'CMB custom credit card limited beacuse of slow connection', 'Tencent News openly apologize to Beijing Weida Cancer Hospital'],
   },
   mid_top_column: {
-    header1: '',
-    text1: [],
-    many_img1: { src1: 'image link', src1_text: '', src2: 'image link', src2_text: '' },
-    header2: '',
-    text2: [],
-    many_img2: { src1: 'image link', src1_text: '', src2: 'image link', src2_text: '' },
-    text3: [],
+    header1: 'Today’s top topics',
+    text1: ['Fishermen are no longer allowed to bring their own baits', 'Tang Bohu was born in what year? Can you solve this puzzle?', 'Marriage contracts are traps, you may wish to read them before signing', 'Logistics "minute delivery" reveiled thier new retail secrets.', 'Testiments of survivors frokm Crashed Bus', 'Questioning making fundraising management fees a expectation not a contribution', 'Smoking while responding to police management, This youth is having a bad attitude'],
+    many_img1: { src1: 'image link', src1_text: 'Wu Xiubo voiceovers chimpanzees', src2: 'image link', src2_text: 'Working girl crying: “life is not easy”' },
+    header2: 'Today’s Top pictures',
+    text2: ['Couple lost in the mountains. Female still lost, Male was rescued: He was hanging off a cliff', 'Mother died on the high-speed rail last cell phone message from son: Mommy do not be afraid', 'Counting the previous Super Bowl superstar teams', '7-year-old boy earns hundreds of thousands determins to financialy support parents ', 'Winter Olympics China always count on gold', 'Wu Yifan sing during the Super Bowl Spring Festival. Over 30 million views.'],
+    many_img2: { src1: 'image link', src1_text: 'Engineers return to the field and test fruit', src2: 'image link', src2_text: 'True beauty don’t fear wrinkles' },
+    text3: ['Treasure|   Thousands of gold coins found in a century-old shipwreck', 'Sports|   Sharapova back on the street racing scene', 'Food|   Why Africa does not have any fine restaurants', 'Fashon|   Ma Yi Yan figure has been shopping for online clothing web stores should not be underestimated', 'Cars|   A big wave of new cars officially unveiled from Tiggo', 'Shocking|   Mao Kankan: Some people regret after his suicide that they did not borrow money from him', 'History|   There was no traffic light in this country and there was a television network 20 years ago', 'Daily Life|   -1 ℃ cold night city of Zhengzhou imigrant workers sleep in underground passage'],
   },
   right_top_column: {
 
   },
   left_category_column1: {
-    img: { src: 'image link', text: '' },
-    text: [],
+    header: 'Finance / Securities',
+    img: { src: 'image link', text: 'RMB appreciation against the U.S. dollar 3.76% Expert: Difficult to evaluation before the holiday' },
+    text: ['Ali and Beijing Municipal State-owned Venture Capital Holdings 7.8 billion strategic investment in Wanda', 'Nanjing and other cities housing prices over the North Guangshen: loan more than 200,000', 'Apple is also bothered by the "signal gate" recall part of the iPhone 7', 'Foxconn to transition: 5 years in the field of AI generate over 300 million US dollars', 'ICO break open the denomination fraud: the project team are fake', 'Nissan intends to invest 60 billion yuan in China in 2022 sales of 2.6 million'],
   },
   mid_category_column1: {
-    img: { src: 'image link', text: '' },
-    text: [],
+    header: '',
+    img: { src: 'image link', text: 'Dow plunge nearly 700 points on Friday what triggerd it? ' },
+    text: ['The market or ushering in confusion: A share to form an important bottom structure?', 'Agriculture, forestry, animal husbandry and fishery benefiting farmers increase in value', 'Music Watch consecutive 9th daily limit market value has evaporated 37.5 billion yuan', 'A number of listed companies to disclose the reasons for suspension', 'Eight people died in a gas pipeline accident in Songshan', 'Tencent A share: the prize waiting for you to win 2018, Are Han shares the most profitable?'],
   },
   right_category_column1: {
-    img: { src: 'image link', text: '' },
-    text: [],
+    header: 'cars',
+    img: { src: 'image link', text: 'Snow Road, the all-around choice luxury full-time four-wheel drive SUV recommended' },
+    text: ['VV5s Hi4 road test spy photos exposure BMW X5M road test spy photos exposure', 'Exposure Guangzhou Automobile Toyota ix4 EV  auto version now listed', 'Exposure Chen T90 mixed version spy photos Changan Auchan X70A 1.3T spy photos', 'Ford high-level personnel turmoil the car might be explosive', 'How to choose a multi-purpose car joint venture crossover car listen to me', 'These tests you can also explore the car buyers to send automatic washing machine'],
   },
   left_category_column2: {
-    img: { src: 'image link', text: '' },
-    text: [],
+    header: 'Sport / NBA / Premier League',
+    img: { src: 'image link', text: 'NFL-Hawks beat Super Bowl, Brady missed the 6th shot' },
+    text: ['NBA - Wei 36 points negative Lakers recommended three to one', 'Premiership - Liverpool 2-2 Hotspur Salah 2 Kane points to kill absolutely flat', 'Klopp: Adamn the referee will receive a large ticket', 'La Liga - Pique Savior Barcelona 1-1 Messi', 'Zhu Ting 8 points Wakifu 0-3 by Isaac Bashi second defeat this spring', '4 months debut Anna smiths daughter learn to play table tennis'],
   },
   mid_category_column2: {
-    img: { src: 'image link', text: '' },
-    text: [],
+    header: '',
+    text: ['Tencent Winter Olympics team set off hundreds of teams to create more than 30 files original content', 'Jia singing during Super Bowl, midfielder Xiu Jin song and dance stuns the audience', 'Eagle won, Bryan can be left out today', 'Point of view: Do not ruin the world first league video referee in the Premier League', 'The World Cup -9 minutes 5 goal, Poland 9th top team in Eastern Europe', 'Tottenham coach: We show too much weakness to Liverpool', 'Brothers say! Old horse to Li root: Thank you for helping me win the championship'],
   },
   right_category_column2: {
-    img: { src: 'image link', text: '' },
-    text: [],
+    header: 'Real estate',
+    img: { src: 'image link', text: 'Sell now or continue to wait and see, how will the future property market go?' },
+    text: ['Second-hand housing how to choose? Multi-level and high-level buildings have different prices', 'Huxing those small "signs", the last one is not common', 'Gorgeous visual feast! Super high CP American neoclassical mansion', 'Rewire: The system cabinet impression of high quality casual leisure homes', '100 square feet three-room rough industrial style, do you like it?', 'Delicate pure and beautiful style'],
   },
 
 };
