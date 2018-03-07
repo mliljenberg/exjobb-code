@@ -78,50 +78,50 @@ class Qqheader extends React.Component { // eslint-disable-line react/prefer-sta
         <Wrapper>
           <Box>
             <Row>
-              {this.props.box1.row1.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box1.row1.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)} >{item}</Text>))}
             </Row>
             <Row>
-              {this.props.box1.row2.map((item) => (<Text key={item} >{item}</Text>))}
-            </Row>
-          </Box>
-          <Box>
-            <Row>
-              {this.props.box2.row1.map((item) => (<Text key={item} >{item}</Text>))}
-            </Row>
-            <Row>
-              {this.props.box2.row2.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box1.row2.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
             </Row>
           </Box>
           <Box>
             <Row>
-              {this.props.box3.row1.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box2.row1.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
             </Row>
             <Row>
-              {this.props.box3.row2.map((item) => (<Text key={item} >{item}</Text>))}
-            </Row>
-          </Box>
-          <Box>
-            <Row>
-              {this.props.box4.row1.map((item) => (<Text key={item} >{item}</Text>))}
-            </Row>
-            <Row>
-              {this.props.box4.row2.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box2.row2.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
             </Row>
           </Box>
           <Box>
             <Row>
-              {this.props.box5.row1.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box3.row1.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
             </Row>
             <Row>
-              {this.props.box5.row2.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box3.row2.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
             </Row>
           </Box>
           <Box>
             <Row>
-              {this.props.box6.row1.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box4.row1.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
             </Row>
             <Row>
-              {this.props.box6.row2.map((item) => (<Text key={item} >{item}</Text>))}
+              {this.props.box4.row2.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
+            </Row>
+          </Box>
+          <Box>
+            <Row>
+              {this.props.box5.row1.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
+            </Row>
+            <Row>
+              {this.props.box5.row2.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
+            </Row>
+          </Box>
+          <Box>
+            <Row>
+              {this.props.box6.row1.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
+            </Row>
+            <Row>
+              {this.props.box6.row2.map((item) => (<Text key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</Text>))}
             </Row>
           </Box>
         </Wrapper>);
@@ -130,50 +130,50 @@ class Qqheader extends React.Component { // eslint-disable-line react/prefer-sta
       <Wrapper>
         <BoxEng>
           <RowEng>
-            {this.props.box1.row1.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box1.row1.map((item) => (<TextEng onClick={() => this.props.handleClick(item, this)} key={item} >{item}</TextEng>))}
           </RowEng>
           <RowEng>
-            {this.props.box1.row2.map((item) => (<TextEng key={item} >{item}</TextEng>))}
-          </RowEng>
-        </BoxEng>
-        <BoxEng>
-          <RowEng>
-            {this.props.box2.row1.map((item) => (<TextEng key={item} >{item}</TextEng>))}
-          </RowEng>
-          <RowEng>
-            {this.props.box2.row2.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box1.row2.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
         </BoxEng>
         <BoxEng>
           <RowEng>
-            {this.props.box3.row1.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box2.row1.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
           <RowEng>
-            {this.props.box3.row2.map((item) => (<TextEng key={item} >{item}</TextEng>))}
-          </RowEng>
-        </BoxEng>
-        <BoxEng>
-          <RowEng>
-            {this.props.box4.row1.map((item) => (<TextEng key={item} >{item}</TextEng>))}
-          </RowEng>
-          <RowEng>
-            {this.props.box4.row2.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box2.row2.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
         </BoxEng>
         <BoxEng>
           <RowEng>
-            {this.props.box5.row1.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box3.row1.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
           <RowEng>
-            {this.props.box5.row2.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box3.row2.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
         </BoxEng>
         <BoxEng>
           <RowEng>
-            {this.props.box6.row1.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box4.row1.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
           <RowEng>
-            {this.props.box6.row2.map((item) => (<TextEng key={item} >{item}</TextEng>))}
+            {this.props.box4.row2.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
+          </RowEng>
+        </BoxEng>
+        <BoxEng>
+          <RowEng>
+            {this.props.box5.row1.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
+          </RowEng>
+          <RowEng>
+            {this.props.box5.row2.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
+          </RowEng>
+        </BoxEng>
+        <BoxEng>
+          <RowEng>
+            {this.props.box6.row1.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
+          </RowEng>
+          <RowEng>
+            {this.props.box6.row2.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
         </BoxEng>
       </Wrapper>);
@@ -188,6 +188,7 @@ Qqheader.propTypes = {
   box5: PropTypes.object.isRequired,
   box6: PropTypes.object.isRequired,
   zh: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired,
 
 
 };

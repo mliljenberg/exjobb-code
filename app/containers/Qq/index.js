@@ -74,11 +74,10 @@ const RightColumn = styled.div`
 const CommercialColumn = styled.div`
 `;
 const Banner = styled.img`
-  width: 750px;
-  height: 75px;
+ //width: 750px;
+  //height: 75px;
   margin-top: 10px;
   margin-left: 17px;
-  background-color: black;
 `;
 let content = {};
 const zh = true;
@@ -96,6 +95,14 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
     } else {
       content = enContent;
     }
+    this.HandleOnClick = this.HandleOnClick.bind(this);
+  }
+
+  HandleOnClick(message, event) {
+    console.info('Click Message: ', message);
+    console.info('click event: ', event);
+    console.log(event.screenX);
+    console.log(event.screenY);
   }
   render() {
     return (
@@ -103,8 +110,8 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
         <QQSocialMedia />
 
         <PageWrapper>
-          <QQHeader zh={zh} box1={content.main_header.box1} box2={content.main_header.box2} box3={content.main_header.box3} box4={content.main_header.box4} box5={content.main_header.box5} box6={content.main_header.box6} />
-          <Banner />
+          <QQHeader handleClick={this.HandleOnClick} zh={zh} box1={content.main_header.box1} box2={content.main_header.box2} box3={content.main_header.box3} box4={content.main_header.box4} box5={content.main_header.box5} box6={content.main_header.box6} />
+          <Banner src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner1.png'} />
           <MainWrapper>
             <MainLeftColumn>
               <QQHeaderColumns id={1} text={content.left_top_column.header1} />
@@ -124,7 +131,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
             </MainMiddleColumn>
             <CommercialColumn></CommercialColumn>
           </MainWrapper>
-          <Banner />
+          <Banner src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner2.png'} />
 
           <CategoryWrapper>
             <LeftColumn>
