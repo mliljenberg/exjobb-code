@@ -46,11 +46,11 @@ class QqsocialMedia extends React.Component { // eslint-disable-line react/prefe
   render() {
     return (
       <Fixed>
-        <Feedback src={'http://www.futuresoluindia.com/img/Email-Logo.png'} />
-        <SocialMedia src={'http://1000logos.net/wp-content/uploads/2016/11/Facebook-Logo.png'} />
-        <SocialMedia src={'https://www.ioby.org/blog/wp-content/uploads/2017/04/Twitter-logo2.png'} />
-        <SocialMedia src={'https://seeklogo.com/images/W/wechat-logo-C88C575BE0-seeklogo.com.png'} />
-        <SocialMedia src={'https://instagram-brand.com/wp-content/themes/ig-branding/assets/images/ig-logo-email.png'} />
+        <Feedback src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/contact.png'} />
+        <SocialMedia src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/facebook-logo.png'} />
+        <SocialMedia src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/twitter-logo.png'} />
+        <SocialMedia src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/wechat-logo.png'} />
+        <SocialMedia src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/ig-logo.png'} />
       </Fixed>
     );
   }
