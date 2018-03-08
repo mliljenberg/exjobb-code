@@ -18,6 +18,8 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Qq from 'containers/Qq/Loadable';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Bbc from 'containers/Bbc/Loadable';
+import Sus from 'containers/Sus/Loadable';
 
 export default function App() {
   return (
@@ -25,6 +27,8 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/qq" component={Qq} />
+        <Route exact path="/bbc" component={Bbc} />
+        <Route exact path="/sus" component={Sus} />
         <Route component={NotFoundPage} />
       </Switch>
     </MuiThemeProvider>

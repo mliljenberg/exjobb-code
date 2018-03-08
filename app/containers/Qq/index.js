@@ -25,6 +25,7 @@ import QQSocialMedia from '../../components/QqsocialMedia';
 import PageTest from '../../components/PageTest';
 import { enContent, zhContent } from './content';
 import { clickAction, finishQuestionAction, startTimerAction } from './actions';
+import { Dialog, RaisedButton } from 'material-ui';
 
 const BackWrapper = styled.div`
   background: linear-gradient(#F44336, #EF5350, white);
@@ -79,6 +80,12 @@ const Banner = styled.img`
   margin-top: 10px;
   margin-left: 17px;
 `;
+const customContentStyle = {
+  width: '90%',
+  height: '90%',
+  maxHeight: 'none',
+  maxWidth: 'none',
+};
 let content = {};
 const zh = true;
 
@@ -90,7 +97,7 @@ const zh = true;
 export class Qq extends React.Component { // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    this.state = { lastItemClicked: '' };
+    this.state = { lastItemClicked: '', open: true };
 
     if (zh) {
       content = zhContent;
@@ -100,6 +107,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
     this.HandleOnClick = this.HandleOnClick.bind(this);
     this.NextClicked = this.NextClicked.bind(this);
     this.SkipClicked = this.SkipClicked.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   HandleOnClick(message, event) {
@@ -107,12 +115,12 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
     console.info('click event: ', event);
     console.log(event.screenX);
     console.log(event.screenY);
-    let w = window,
-      d = document,
-      e = d.documentElement,
-      g = d.getElementsByTagName('body')[0],
-      width = w.innerWidth || e.clientWidth || g.clientWidth,
-      height = w.innerHeight || e.clientHeight || g.clientHeight;
+    const w = window;
+    const d = document;
+    const e = d.documentElement;
+    const g = d.getElementsByTagName('body')[0];
+    const width = w.innerWidth || e.clientWidth || g.clientWidth;
+    const height = w.innerHeight || e.clientHeight || g.clientHeight;
     const relativePosX = event.screenX / width;
     const relativePosY = event.screenY / height;
 
@@ -134,10 +142,22 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
     this.setState({ lastItemClicked: '' });
     this.props.onStartTimer();
   }
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
 
   render() {
+    const actions = (
+      <RaisedButton
+        label="Start Test"
+        primary
+        onClick={this.handleClose}
+      />
+    );
     return (
       <BackWrapper>
+        <Dialog open={this.state.open} actions={actions} modal contentStyle={customContentStyle} />
         <QQSocialMedia handleClick={this.HandleOnClick} />
 
         <PageWrapper>
@@ -201,7 +221,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
 
         </PageWrapper>
 
-        <PageTest selected={this.state.lastItemClicked} questionsLeft={`${this.props.qq.index+1}/${this.props.qq.questions.length}`} question={this.props.qq.currentQuestion} nextClicked={this.NextClicked} skipClicked={this.SkipClicked} />
+        <PageTest selected={this.state.lastItemClicked} questionsLeft={`${this.props.qq.index + 1}/${this.props.qq.questions.length}`} question={this.props.qq.currentQuestion} nextClicked={this.NextClicked} skipClicked={this.SkipClicked} />
       </BackWrapper>
     );
   }
