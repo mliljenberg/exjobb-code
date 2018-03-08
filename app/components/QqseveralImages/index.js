@@ -46,18 +46,17 @@ cursor: pointer;
 
 class QqseveralImages extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log(this.props.id);
     return (
       <MainWrapper>
         <Header>{this.props.header}</Header>
         <Wrapper>
           <div>
-            <Img src={this.props.src1} />
-            <Description>{this.props.src1Text}</Description>
+            <Img onClick={(e) => this.props.handleClick(this.props.src1Text, e)} src={this.props.src1} />
+            <Description onClick={(e) => this.props.handleClick(this.props.src1Text, e)} >{this.props.src1Text}</Description>
           </div>
           <div>
-            <Img src={this.props.src2} />
-            <Description>{this.props.src2Text}</Description>
+            <Img onClick={(e) => this.props.handleClick(this.props.src2Text, e)} src={this.props.src2} />
+            <Description onClick={(e) => this.props.handleClick(this.props.src2Text, e)}>{this.props.src2Text}</Description>
           </div>
         </Wrapper>
       </MainWrapper>
@@ -71,7 +70,7 @@ QqseveralImages.propTypes = {
   src1Text: PropTypes.string.isRequired,
   src2: PropTypes.string.isRequired,
   src2Text: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default QqseveralImages;

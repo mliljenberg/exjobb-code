@@ -17,15 +17,16 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Qq from 'containers/Qq/Loadable';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default function App() {
   return (
-    <div>
+    <MuiThemeProvider>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/qq" component={Qq} />
         <Route component={NotFoundPage} />
       </Switch>
-    </div>
+    </MuiThemeProvider>
   );
 }

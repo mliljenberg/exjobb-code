@@ -6,7 +6,7 @@
 
 import {
   CLICK_ACTION,
-  DEFAULT_ACTION, FINISH_QUESTION_ACTION,
+  DEFAULT_ACTION, FINISH_QUESTION_ACTION, RESET_TIMER, START_TIMER, TICK,
 } from './constants';
 
 export function defaultAction() {
@@ -27,12 +27,27 @@ export function clickAction(clickId, posX, posY, screenWidth, screenHeight, rela
     relativeTime,
   };
 }
-export function finishQuestionAction(lastClickId, totalTime, endTime ) {
+export function finishQuestionAction(lastClickId, totalTime, endTime) {
   return {
     type: FINISH_QUESTION_ACTION,
     lastClickId,
     totalTime,
     endTime,
     startTime: endTime,
+  };
+}
+export function startTimerAction() {
+  return {
+    type: START_TIMER,
+  };
+}
+export function tick() {
+  return {
+    type: TICK,
+  };
+}
+export function resetTimer() {
+  return {
+    type: RESET_TIMER,
   };
 }

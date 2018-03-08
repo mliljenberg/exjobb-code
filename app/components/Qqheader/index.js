@@ -130,7 +130,7 @@ class Qqheader extends React.Component { // eslint-disable-line react/prefer-sta
       <Wrapper>
         <BoxEng>
           <RowEng>
-            {this.props.box1.row1.map((item) => (<TextEng onClick={() => this.props.handleClick(item, this)} key={item} >{item}</TextEng>))}
+            {this.props.box1.row1.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}
           </RowEng>
           <RowEng>
             {this.props.box1.row2.map((item) => (<TextEng key={item} onClick={(e) => this.props.handleClick(item, e)}>{item}</TextEng>))}

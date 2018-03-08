@@ -25,10 +25,9 @@ const Header = styled.a`
 
 class QqheaderColumns extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log(this.props.id);
     return (
       <Wrapper>
-        <Header>{this.props.text}</Header>
+        <Header onClick={(e) => this.props.handleClick(this.props.text, e)}>{this.props.text}</Header>
       </Wrapper>
     );
   }
@@ -36,7 +35,7 @@ class QqheaderColumns extends React.Component { // eslint-disable-line react/pre
 
 QqheaderColumns.propTypes = {
   text: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default QqheaderColumns;

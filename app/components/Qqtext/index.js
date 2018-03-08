@@ -23,10 +23,9 @@ cursor: pointer;
 
 class Qqtext extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log(this.props.id);
     return (
       <Wrapper>
-        {this.props.text.map((line) => (<Paragraph key={line}>{line}</Paragraph>))}
+        {this.props.text.map((line) => (<Paragraph onClick={(e) => this.props.handleClick(line, e)} key={line}>{line}</Paragraph>))}
       </Wrapper>
     );
   }
@@ -34,7 +33,7 @@ class Qqtext extends React.Component { // eslint-disable-line react/prefer-state
 
 Qqtext.propTypes = {
   text: PropTypes.array.isRequired,
-  id: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
 
 };
 

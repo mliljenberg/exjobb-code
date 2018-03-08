@@ -34,11 +34,10 @@ cursor: pointer;
 
 class Qqimage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log(this.props.id);
     return (
       <Wrapper>
-        <Img src={this.props.src} />
-        <Text>{this.props.text}</Text>
+        <Img onClick={(e) => this.props.handleClick(this.props.text, e)} src={this.props.src} />
+        <Text onClick={(e) => this.props.handleClick(this.props.text, e)}>{this.props.text}</Text>
       </Wrapper>
     );
   }
@@ -47,7 +46,7 @@ class Qqimage extends React.Component { // eslint-disable-line react/prefer-stat
 Qqimage.propTypes = {
   src: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Qqimage;
