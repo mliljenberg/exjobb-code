@@ -6,7 +6,7 @@
 
 import {
   CLICK_ACTION,
-  DEFAULT_ACTION, FINISH_QUESTION_ACTION, RESET_TIMER, START_TIMER, TICK,
+  DEFAULT_ACTION, FINISH_QUESTION_ACTION, RESET_TIMER, START_TIMER, TICK, ZH,
 } from './constants';
 
 export function defaultAction() {
@@ -49,5 +49,10 @@ export function tick() {
 export function resetTimer() {
   return {
     type: RESET_TIMER,
+  };
+}
+export function languageZh() {
+  return {
+    type: ZH,
   };
 }

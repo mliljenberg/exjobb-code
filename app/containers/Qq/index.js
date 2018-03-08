@@ -201,7 +201,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
 
         </PageWrapper>
 
-        <PageTest time={this.props.qq.timer} question={this.props.qq.currentQuestion} nextClicked={this.NextClicked} skipClicked={this.SkipClicked} />
+        <PageTest selected={this.state.lastItemClicked} questionsLeft={`${this.props.qq.index+1}/${this.props.qq.questions.length}`} question={this.props.qq.currentQuestion} nextClicked={this.NextClicked} skipClicked={this.SkipClicked} />
       </BackWrapper>
     );
   }

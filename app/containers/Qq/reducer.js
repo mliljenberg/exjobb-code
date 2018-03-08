@@ -8,7 +8,7 @@
 import { fromJS } from 'immutable';
 import {
   CLICK_ACTION,
-  FINISH_QUESTION_ACTION, RESET_TIMER, TICK,
+  FINISH_QUESTION_ACTION, RESET_TIMER, TICK, ZH,
 } from './constants';
 
 const clickAction = (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => ({
@@ -22,6 +22,24 @@ const clickAction = (clickId, posX, posY, screenWidth, screenHeight, relativePos
   relativeTime,
 });
 // TODO: kan va så att imutable listan och map måste deffineras vi märker det
+const questionsZh = [{
+  questionText: 'bla,bla,bla',
+  actions: [],
+  correct: 0,
+  correctId: '1',
+  startTime: 0,
+  endTime: 0,
+  totalTime: 0,
+},
+{
+  questionText: 'ksjfasökdjfhöaksdjföaskdfjhöaksdjf',
+  actions: [],
+  correct: 0,
+  correctId: '1',
+  startTime: 0,
+  endTime: 0,
+  totalTime: 0,
+}];
 const questions = [{
   questionText: 'bla,bla,bla',
   actions: [],
@@ -54,6 +72,8 @@ function qqReducer(state = initialState, action) {
   switch (action.type) {
     case TICK:
       return state.updateIn(['timer'], (val) => val + 1);
+    case ZH:
+      return state.set('questions', questionsZh);
     case RESET_TIMER:
       return state.set('timer', 0);
     case FINISH_QUESTION_ACTION:
