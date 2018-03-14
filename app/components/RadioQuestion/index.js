@@ -7,7 +7,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { RadioButton } from 'material-ui';
+import {RadioButton, RadioButtonGroup} from 'material-ui';
 
 const Wrapper = styled.div`
   margin: 20px;

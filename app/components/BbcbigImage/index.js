@@ -5,16 +5,29 @@
 */
 
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+
+const Image = styled.img`
+  background-color: red;
+  min-width: 480px;
+  min-height: 300px;
+  margin: 0px;
+  padding: 0px;
+`;
+const Header = styled.h2`
+ margin: 0px;
+ padding: 0px;
+ margin-left: 10px;
+`;
+
 
 class BbcbigImage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
-        <FormattedMessage {...messages.header} />
+        <Image src={'bla'} alt={'should load here'} />
+        <Header>Image text</Header>
       </div>
     );
   }

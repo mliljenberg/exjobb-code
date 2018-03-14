@@ -87,7 +87,7 @@ const customContentStyle = {
   maxWidth: 'none',
 };
 let content = {};
-const zh = true;
+const zh = false;
 
 /**
  * Se till att spara varje text columns medelanden i en lista som skickas in.

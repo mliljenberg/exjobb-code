@@ -7,7 +7,7 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   header: {
-    id: 'app.components.BbcmainBigNews.header',
-    defaultMessage: 'This is the BbcmainBigNews component !',
+    id: 'app.components.BbcmainNews.header',
+    defaultMessage: 'This is the BbcmainNews component !',
   },
 });

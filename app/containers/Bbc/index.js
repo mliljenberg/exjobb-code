@@ -7,7 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import styled from 'styled-components';
@@ -17,90 +16,45 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectBbc from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
-import BBCHeader from '../../components/Bbcheader';
-import BBCMainBigNews from '../../components/BbcmainBigNews';
-import BBCMainNormalNews from '../../components/BbcmainNormalNews';
-import BBCMainSmallGridNews from '../../components/BbcmainSmallGridNews';
-import BBCCategoryHeader from '../../components/BbccategoryHeader';
-import BBCBigImage from '../../components/BbcbigImage';
-import BBCImageRow from '../../components/BbcimageRow';
-import BBCSmallCategory from '../../components/BbcsmallCategory';
-import BBCRatingCategory from '../../components/BbcratingCategory';
-import BBCShare from '../../components/Bbcshare';
-import BBCFooter from '../../components/Bbcfooter';
+
 import PageTest from '../../components/PageTest';
+import BbcCategory from '../../components/BbcCategory';
+import Bbcheader from '../../components/Bbcheader';
+import BbcmainNews from '../../components/BbcmainNews';
+import Bbcshare from '../../components/Bbcshare';
+import Bbcfooter from '../../components/Bbcfooter';
+import BbcratingCategory from '../../components/BbcratingCategory';
+import BbccategoryHeader from '../../components/BbccategoryHeader';
+import BbcimageRow from '../../components/BbcimageRow';
 
 
 const PageWrapper = styled.div`
 `;
-const RowWrapper = styled.div`
-`;
-const Category = styled.div`
-`;
-const MainWrapper = styled.div`
-`;
+
 
 export class Bbc extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
-        <BBCHeader />
+        <Bbcheader />
         <PageWrapper>
-
-          <MainWrapper>
-            <RowWrapper>
-              <BBCMainBigNews />
-              <BBCMainNormalNews />
-              <BBCMainNormalNews />
-            </RowWrapper>
-
-            <RowWrapper >
-              <BBCMainNormalNews />
-              <BBCMainNormalNews />
-              <BBCMainNormalNews />
-              <BBCMainSmallGridNews />
-            </RowWrapper>
-          </MainWrapper>
-
-          <Category>
-            <BBCCategoryHeader />
-            <BBCBigImage />
-            <BBCImageRow />
-            <BBCImageRow />
-          </Category>
-
-          <Category>
-            <BBCCategoryHeader />
-            <BBCBigImage />
-            <BBCImageRow />
-            <BBCImageRow />
-          </Category>
-
-          <BBCSmallCategory />
-
-          <BBCRatingCategory />
-
-          <Category>
-            <BBCCategoryHeader />
-            <BBCBigImage />
-            <BBCImageRow />
-            <BBCImageRow />
-          </Category>
-
-          <Category>
-            <BBCCategoryHeader />
-            <BBCBigImage />
-            <BBCImageRow />
-            <BBCImageRow />
-          </Category>
-
-          <BBCSmallCategory />
+          <BbcmainNews />
+          <BbccategoryHeader />
+          <BbcCategory />
+          <BbccategoryHeader />
+          <BbcCategory />
+          <BbccategoryHeader />
+          <BbcimageRow />
+          <BbccategoryHeader />
+          <BbcratingCategory />
+          <BbccategoryHeader />
+          <BbcCategory />
+          <BbccategoryHeader />
+          <BbcimageRow />
         </PageWrapper>
-        <BBCShare></BBCShare>
-        <BBCFooter></BBCFooter>
-        <PageTest />
-        <FormattedMessage {...messages.header} />
+        <Bbcshare />
+        <Bbcfooter />
+        <PageTest question={'hej hej'} skipClicked={''} nextClicked={''} />
       </div>
     );
   }
