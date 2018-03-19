@@ -6,6 +6,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import BbcbigImage from '../BbcbigImage';
 
@@ -27,16 +28,19 @@ class HeadNews extends React.Component { // eslint-disable-line react/prefer-sta
     return (
       <Wrapper>
         <TextWrapper>
-          <h1>Header</h1>
-          <p>Text text text text text</p>
+          <h1>{this.props.header}</h1>
+          <p>{this.props.text}</p>
         </TextWrapper>
-        <BbcbigImage />
+        <BbcbigImage src={this.props.src} />
       </Wrapper>
     );
   }
 }
 
 HeadNews.propTypes = {
+  header: PropTypes.string,
+  text: PropTypes.string,
+  src: PropTypes.string,
 
 };
 

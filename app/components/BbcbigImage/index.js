@@ -6,6 +6,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 
 const Image = styled.img`
@@ -26,15 +27,16 @@ class BbcbigImage extends React.Component { // eslint-disable-line react/prefer-
   render() {
     return (
       <div>
-        <Image src={'bla'} alt={'should load here'} />
-        <Header>Image text</Header>
+        <Image src={this.props.src} alt={'Something went wrong'} />
+        <Header>{this.props.header}</Header>
       </div>
     );
   }
 }
 
 BbcbigImage.propTypes = {
-
+  src: PropTypes.string.isRequired,
+  header: PropTypes.string,
 };
 
 export default BbcbigImage;

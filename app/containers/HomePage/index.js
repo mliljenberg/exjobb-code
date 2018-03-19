@@ -23,12 +23,14 @@ import BbcmainNews from '../../components/BbcmainNews';
 import BbccategoryHeader from '../../components/BbccategoryHeader';
 import BbcCategory from '../../components/BbcCategory';
 import BbcratingCategory from '../../components/BbcratingCategory';
+import Bbcheader from '../../components/Bbcheader';
 
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
+        <Bbcheader />
         <BbcmainNews />
         <BbccategoryHeader />
         <BbcCategory />

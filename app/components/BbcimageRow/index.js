@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 20px;
-  width: 100%;
+
 
 `;
 const Header = styled.h5 `
@@ -29,16 +29,13 @@ const Header = styled.h5 `
   padding: 0px;
 `;
 
-const Text = styled.p`
-  margin-top: 5px;
-`;
 
 class BbcimageRow extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <Wrapper>
-        {this.props.images.map((image) =>
-          (<div><Image src={image.src} /><Header>{image.header}</Header><Text>{image.text}</Text></div>)
+        {this.props.images_text.map((image, index) =>
+          (<div><Image src={this.props.images_src[index]} /><Header>{image}</Header></div>)
         )}
       </Wrapper>
     );
@@ -46,13 +43,8 @@ class BbcimageRow extends React.Component { // eslint-disable-line react/prefer-
 }
 
 BbcimageRow.propTypes = {
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      src: PropTypes.string.isRequired,
-      header: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    })
-  ),
+  images_text: PropTypes.array.isRequired,
+  images_src: PropTypes.array.isRequired,
 };
 
 export default BbcimageRow;

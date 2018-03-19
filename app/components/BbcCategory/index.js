@@ -6,7 +6,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import BbccategoryHeader from '../BbccategoryHeader';
+import PropTypes from 'prop-types';
+
 import BbcbigImage from '../BbcbigImage';
 import BbcimageRow from '../BbcimageRow';
 
@@ -29,19 +30,23 @@ class BbcCategory extends React.Component { // eslint-disable-line react/prefer-
     return (
       <Wrapper>
         <TopRow>
-          <BbcbigImage />
+          <BbcbigImage header={this.props.big_image_header} src={this.props.big_image_src} />
           <RowWrapper>
-            <BbcimageRow images={[{ src: 'bla bla', header: 'bla bla' }, { src: 'bla bla', header: 'bla bla' }]} />
+            <BbcimageRow images_text={this.props.top_image_row_text} images_src={this.props.top_image_src} />
           </RowWrapper>
         </TopRow>
-        <BbcimageRow images={[{ src: 'bla bla', header: 'bla bla' }, { src: 'bla bla', header: 'bla bla' }, { src: 'bla bla', header: 'bla bla' }, { src: 'bla bla', header: 'bla bla' }]} />
-      </Wrapper>
+        <BbcimageRow images_text={this.props.bot_image_row_text} images_src={this.props.bot_image_src} /></Wrapper>
     );
   }
 }
 
 BbcCategory.propTypes = {
-
+  big_image_header: PropTypes.string.isRequired,
+  big_image_src: PropTypes.string.isRequired,
+  top_image_row_text: PropTypes.array.isRequired,
+  top_image_src: PropTypes.array.isRequired,
+  bot_image_row_text: PropTypes.array.isRequired,
+  bot_image_src: PropTypes.array.isRequired,
 };
 
 export default BbcCategory;

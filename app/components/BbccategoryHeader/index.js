@@ -31,7 +31,7 @@ class BbccategoryHeader extends React.Component { // eslint-disable-line react/p
   render() {
     return (
       <Wrapper>
-        <Header>{this.props.text}</Header>
+        <Header>{this.props.header}</Header>
         <Line />
       </Wrapper>
     );
@@ -39,7 +39,7 @@ class BbccategoryHeader extends React.Component { // eslint-disable-line react/p
 }
 
 BbccategoryHeader.propTypes = {
-  text: PropTypes.string,
+  header: PropTypes.string,
 };
 
 export default BbccategoryHeader;

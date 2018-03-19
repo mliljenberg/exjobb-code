@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 const Header = styled.h3`
   margin: 5px;
   word-wrap: break-word;
+  width: 250px;
 `;
 
 class BbcmainSmallGridNews extends React.Component { // eslint-disable-line react/prefer-stateless-function
