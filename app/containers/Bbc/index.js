@@ -99,26 +99,27 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
       <div>
         <Bbcheader />
         <PageWrapper>
-          <BbcmainNews grid_news={content.main_news.grid_news} image_row={content.main_news.image_row} image_row_src={[imagePath, imagePath, imagePath, imagePath]} main_src={imagePath} main={content.main_news.main} comercial_src={'Find image'} />
+          <BbcmainNews handleClick={this.HandleOnClick} grid_news={content.main_news.grid_news} image_row={content.main_news.image_row} image_row_src={[imagePath, imagePath, imagePath, imagePath]} main_src={imagePath} main={content.main_news.main} comercial_src={'Find image'} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcCategory big_image_header={content.category_must_see.header} big_image_src={imagePath} bot_image_row_text={content.category_must_see.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_must_see.top_row} top_image_src={[imagePath, imagePath]} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_must_see.header} big_image_src={imagePath} bot_image_row_text={content.category_must_see.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_must_see.top_row} top_image_src={[imagePath, imagePath]} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcratingCategory headers={content.rating_most_watched} />
+          <BbcratingCategory handleClick={this.HandleOnClick} headers={content.rating_most_watched} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcCategory big_image_header={content.category_full_story.header} big_image_src={imagePath} bot_image_row_text={content.category_full_story.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_full_story.top_row} top_image_src={[imagePath, imagePath]} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_full_story.header} big_image_src={imagePath} bot_image_row_text={content.category_full_story.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_full_story.top_row} top_image_src={[imagePath, imagePath]} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcimageRow images_src={[imagePath, imagePath, imagePath, imagePath]} images_text={content.image_row_long_reads} />
+          <BbcimageRow handleClick={this.HandleOnClick} images_src={[imagePath, imagePath, imagePath, imagePath]} images_text={content.image_row_long_reads} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcratingCategory headers={content.rating_most_read} />
+          <BbcratingCategory handleClick={this.HandleOnClick} headers={content.rating_most_read} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcCategory big_image_header={content.category_around_world.header} big_image_src={imagePath} bot_image_row_text={content.category_around_world.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_around_world.top_row} top_image_src={[imagePath, imagePath]} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_around_world.header} big_image_src={imagePath} bot_image_row_text={content.category_around_world.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_around_world.top_row} top_image_src={[imagePath, imagePath]} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcCategory big_image_header={content.category_sport.header} big_image_src={imagePath} bot_image_row_text={content.category_sport.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_sport.top_row} top_image_src={[imagePath, imagePath]} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_sport.header} big_image_src={imagePath} bot_image_row_text={content.category_sport.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_sport.top_row} top_image_src={[imagePath, imagePath]} />
           <BbccategoryHeader header={'fix this'} />
-          <BbcimageRow images_src={[imagePath, imagePath, imagePath, imagePath]} images_text={content.image_row_newsbeat} />
+          <BbcimageRow handleClick={this.HandleOnClick} images_src={[imagePath, imagePath, imagePath, imagePath]} images_text={content.image_row_newsbeat} />
         </PageWrapper>
         <Bbcshare />
         <Bbcfooter />
+        <PageTest selected={this.state.lastItemClicked} questionsLeft={`${this.props.bbc.index + 1}/${this.props.bbc.questions.length}`} question={this.props.bbc.currentQuestion} nextClicked={this.NextClicked} skipClicked={this.SkipClicked} />
       </div>
     );
   }

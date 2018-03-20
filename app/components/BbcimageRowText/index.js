@@ -15,6 +15,10 @@ const Image = styled.div`
   background-color: red;
   margin: 0px;
   padding: 0px;
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -27,10 +31,18 @@ const Wrapper = styled.div`
 const Header = styled.h5 `
   margin: 0px;
   padding: 0px;
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
 `;
 
 const Text = styled.p`
   margin-top: 5px;
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
 `;
 
 class BbcimageRowText extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -39,7 +51,7 @@ class BbcimageRowText extends React.Component { // eslint-disable-line react/pre
     return (
       <Wrapper>
         {this.props.images_text.map((image, index) =>
-          (<div><Image src={this.props.images_src[index]} /><Header>{image.header}</Header><Text>{image.text}</Text></div>)
+          (<div><Image src={this.props.images_src[index]} onClick={(e) => this.props.handleClick(image.header, e)} /><Header onClick={(e) => this.props.handleClick(image.header, e)}>{image.header}</Header><Text onClick={(e) => this.props.handleClick(image.header, e)}>{image.text}</Text></div>)
         )}
       </Wrapper>
     );
@@ -54,6 +66,7 @@ BbcimageRowText.propTypes = {
     })
   ),
   images_src: PropTypes.array,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default BbcimageRowText;

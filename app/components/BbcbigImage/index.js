@@ -15,11 +15,19 @@ const Image = styled.img`
   min-height: 300px;
   margin: 0px;
   padding: 0px;
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
 `;
 const Header = styled.h2`
  margin: 0px;
  padding: 0px;
  margin-left: 10px;
+ :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
 `;
 
 
@@ -27,8 +35,8 @@ class BbcbigImage extends React.Component { // eslint-disable-line react/prefer-
   render() {
     return (
       <div>
-        <Image src={this.props.src} alt={'Something went wrong'} />
-        <Header>{this.props.header}</Header>
+        <Image onClick={(e) => this.props.handleClick(this.props.header, e)} src={this.props.src} alt={'Something went wrong'} />
+        <Header onClick={(e) => this.props.handleClick(this.props.header, e)}>{this.props.header}</Header>
       </div>
     );
   }
@@ -37,6 +45,7 @@ class BbcbigImage extends React.Component { // eslint-disable-line react/prefer-
 BbcbigImage.propTypes = {
   src: PropTypes.string.isRequired,
   header: PropTypes.string,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default BbcbigImage;

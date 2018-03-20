@@ -30,12 +30,12 @@ class BbcCategory extends React.Component { // eslint-disable-line react/prefer-
     return (
       <Wrapper>
         <TopRow>
-          <BbcbigImage header={this.props.big_image_header} src={this.props.big_image_src} />
+          <BbcbigImage handleClick={this.props.handleClick} header={this.props.big_image_header} src={this.props.big_image_src} />
           <RowWrapper>
-            <BbcimageRow images_text={this.props.top_image_row_text} images_src={this.props.top_image_src} />
+            <BbcimageRow handleClick={this.props.handleClick} images_text={this.props.top_image_row_text} images_src={this.props.top_image_src} />
           </RowWrapper>
         </TopRow>
-        <BbcimageRow images_text={this.props.bot_image_row_text} images_src={this.props.bot_image_src} /></Wrapper>
+        <BbcimageRow handleClick={this.props.handleClick} images_text={this.props.bot_image_row_text} images_src={this.props.bot_image_src} /></Wrapper>
     );
   }
 }
@@ -47,6 +47,7 @@ BbcCategory.propTypes = {
   top_image_src: PropTypes.array.isRequired,
   bot_image_row_text: PropTypes.array.isRequired,
   bot_image_src: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default BbcCategory;

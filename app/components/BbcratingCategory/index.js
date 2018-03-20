@@ -15,9 +15,13 @@ const Wrapper = styled.div `
   height: ${(props) => props.height ? props.height : 200}px;
   flex-wrap: wrap;
 `;
-const Header = styled.h2 `
+const Header = styled.h3 `
   margin: 0px 0px 0px 10px;
   word-wrap: break-word;
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
 `;
 const Index = styled.h2 `
   color: red;
@@ -27,15 +31,15 @@ const Row = styled.div `
   display: flex;
   flex-direction: row;
   margin-top: 20px;
-
+  width: 450px;
 `;
 
 
 class BbcratingCategory extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Wrapper height={((this.props.headers.length / 2) * 56)}>
-        {this.props.headers.map((header, index) => (<Row key={index}><Index>{index + 1}</Index><Header>{header}</Header></Row>))}
+      <Wrapper height={((this.props.headers.length / 2) * 70)}>
+        {this.props.headers.map((header, index) => (<Row key={header} onClick={(e) => this.props.handleClick(header, e)}><Index>{index + 1}</Index><Header>{header}</Header></Row>))}
       </Wrapper>
     );
   }
@@ -43,6 +47,7 @@ class BbcratingCategory extends React.Component { // eslint-disable-line react/p
 
 BbcratingCategory.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.string.isRequired),
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default BbcratingCategory;

@@ -22,16 +22,28 @@ const Wrapper = styled.div`
  display: flex;
   flex-direction: row;
 `;
+const Header = styled.h1`
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
+`;
+const Text = styled.p`
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
+`;
 
 class HeadNews extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <Wrapper>
         <TextWrapper>
-          <h1>{this.props.header}</h1>
-          <p>{this.props.text}</p>
+          <Header onClick={(e) => this.props.handleClick(this.props.header, e)}>{this.props.header}</Header>
+          <Text onClick={(e) => this.props.handleClick(this.props.header, e)}>{this.props.text}</Text>
         </TextWrapper>
-        <BbcbigImage src={this.props.src} />
+        <BbcbigImage onClick={(e) => this.props.handleClick(this.props.header, e)} src={this.props.src} />
       </Wrapper>
     );
   }
@@ -41,6 +53,7 @@ HeadNews.propTypes = {
   header: PropTypes.string,
   text: PropTypes.string,
   src: PropTypes.string,
+  handleClick: PropTypes.func.isRequired,
 
 };
 

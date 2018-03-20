@@ -26,12 +26,12 @@ class BbcmainNews extends React.Component { // eslint-disable-line react/prefer-
   render() {
     return (
       <Wrapper>
-        <HeadNews header={this.props.main.header} text={this.props.main.text} src={this.props.main_src} />
-        <BbcimageRowText images_text={this.props.image_row} images_src={this.props.image_row_src} />
+        <HeadNews handleClick={this.props.handleClick} header={this.props.main.header} text={this.props.main.text} src={this.props.main_src} />
+        <BbcimageRowText handleClick={this.props.handleClick} images_text={this.props.image_row} images_src={this.props.image_row_src} />
         <div>
           <RowWrapper>
-            <BbcimageRow images_text={['something here']} images_src={['something here aswell']} />
-            <BbcmainSmallGridNews news={this.props.grid_news} />
+            <BbcimageRow handleClick={this.props.handleClick} images_text={['something here']} images_src={['something here aswell']} />
+            <BbcmainSmallGridNews handleClick={this.props.handleClick} news={this.props.grid_news} />
           </RowWrapper>
         </div>
       </Wrapper>
@@ -49,6 +49,7 @@ BbcmainNews.propTypes = {
   image_row_src: PropTypes.array.isRequired,
   main_src: PropTypes.string.isRequired,
   comercial_src: PropTypes.string,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default BbcmainNews;

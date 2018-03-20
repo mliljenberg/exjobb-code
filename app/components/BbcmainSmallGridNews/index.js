@@ -18,13 +18,17 @@ const Header = styled.h3`
   margin: 5px;
   word-wrap: break-word;
   width: 250px;
+  :hover {
+  color:dodgerblue;
+  cursor: pointer;
+  }
 `;
 
 class BbcmainSmallGridNews extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <Wrapper>
-        {this.props.news.map((header) => (<Header>{header}</Header>))}
+        {this.props.news.map((header) => (<Header onClick={(e) => this.props.handleClick(header, e)} >{header}</Header>))}
       </Wrapper>
     );
   }
@@ -32,6 +36,7 @@ class BbcmainSmallGridNews extends React.Component { // eslint-disable-line reac
 
 BbcmainSmallGridNews.propTypes = {
   news: PropTypes.arrayOf(PropTypes.string),
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default BbcmainSmallGridNews;
