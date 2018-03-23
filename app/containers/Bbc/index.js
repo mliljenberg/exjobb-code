@@ -37,7 +37,9 @@ const PageWrapper = styled.div`
 margin: 0 10vw 0 10vw;
 `;
 
-const imagePath = 'we will put main path here';
+const imagePath = function (path) {
+  return `https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/bbc/${path}`;
+};
 
 
 export class Bbc extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -97,28 +99,28 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
   render() {
     return (
       <div>
-        <Bbcheader />
+        <Bbcheader menus={content.header} handleClick={this.HandleOnClick} />
         <PageWrapper>
-          <BbcmainNews handleClick={this.HandleOnClick} grid_news={content.main_news.grid_news} image_row={content.main_news.image_row} image_row_src={[imagePath, imagePath, imagePath, imagePath]} main_src={imagePath} main={content.main_news.main} comercial_src={'Find image'} />
-          <BbccategoryHeader header={'fix this'} />
-          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_must_see.header} big_image_src={imagePath} bot_image_row_text={content.category_must_see.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_must_see.top_row} top_image_src={[imagePath, imagePath]} />
-          <BbccategoryHeader header={'fix this'} />
+          <BbcmainNews handleClick={this.HandleOnClick} grid_news={content.main_news.grid_news} image_row={content.main_news.image_row} image_row_src={[(imagePath('head_news/1.png')), (imagePath('head_news/2.png')), (imagePath('head_news/3.png')), (imagePath('head_news/4.png'))]} main_src={imagePath('head_news/big.png')} main={content.main_news.main} comercial_src={'Find image'} />
+          <BbccategoryHeader header={content.header_must_see} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_must_see.header} big_image_src={imagePath('must_see/big.png')} bot_image_row_text={content.category_must_see.row} bot_image_src={[imagePath('must_see/2.1.png'), imagePath('must_see/2.2.png'), imagePath('must_see/2.3.png'), imagePath('must_see/2.4.png')]} top_image_row_text={content.category_must_see.top_row} top_image_src={[imagePath('must_see/1.1.png'), imagePath('must_see/1.2.png')]} />
+          <BbccategoryHeader header={content.header_most_watched} />
           <BbcratingCategory handleClick={this.HandleOnClick} headers={content.rating_most_watched} />
-          <BbccategoryHeader header={'fix this'} />
-          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_full_story.header} big_image_src={imagePath} bot_image_row_text={content.category_full_story.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_full_story.top_row} top_image_src={[imagePath, imagePath]} />
-          <BbccategoryHeader header={'fix this'} />
-          <BbcimageRow handleClick={this.HandleOnClick} images_src={[imagePath, imagePath, imagePath, imagePath]} images_text={content.image_row_long_reads} />
-          <BbccategoryHeader header={'fix this'} />
+          <BbccategoryHeader header={content.header_full_story} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_full_story.header} big_image_src={imagePath('full_story/big.png')} bot_image_row_text={content.category_full_story.row} bot_image_src={[imagePath('full_story/2.1.png'), imagePath('full_story/2.2.png'), imagePath('full_story/2.3.png'), imagePath('full_story/2.4.png')]} top_image_row_text={content.category_full_story.top_row} top_image_src={[imagePath('full_story/1.1.png'), imagePath('full_story/1.2.png')]} />
+          <BbccategoryHeader header={content.header_long_read} />
+          <BbcimageRow handleClick={this.HandleOnClick} images_src={[imagePath('long_reads/1.png'), imagePath('long_reads/2.png'), imagePath('long_reads/3.png'), imagePath('long_reads/4.png')]} images_text={content.image_row_long_reads} />
+          <BbccategoryHeader header={content.header_most_read} />
           <BbcratingCategory handleClick={this.HandleOnClick} headers={content.rating_most_read} />
-          <BbccategoryHeader header={'fix this'} />
-          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_around_world.header} big_image_src={imagePath} bot_image_row_text={content.category_around_world.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_around_world.top_row} top_image_src={[imagePath, imagePath]} />
-          <BbccategoryHeader header={'fix this'} />
-          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_sport.header} big_image_src={imagePath} bot_image_row_text={content.category_sport.row} bot_image_src={[imagePath, imagePath, imagePath, imagePath]} top_image_row_text={content.category_sport.top_row} top_image_src={[imagePath, imagePath]} />
-          <BbccategoryHeader header={'fix this'} />
-          <BbcimageRow handleClick={this.HandleOnClick} images_src={[imagePath, imagePath, imagePath, imagePath]} images_text={content.image_row_newsbeat} />
+          <BbccategoryHeader header={content.header_world} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_around_world.header} big_image_src={imagePath('world/big.png')} bot_image_row_text={content.category_around_world.row} bot_image_src={[imagePath('world/2.1.png'), imagePath('world/2.2.png'), imagePath(('world/2.3.png')), imagePath(('world/2.4.png'))]} top_image_row_text={content.category_around_world.top_row} top_image_src={[imagePath(('world/1.1.png')), imagePath('world/1.2.png')]} />
+          <BbccategoryHeader header={content.header_sport} />
+          <BbcCategory handleClick={this.HandleOnClick} big_image_header={content.category_sport.header} big_image_src={imagePath('sport/big.png')} bot_image_row_text={content.category_sport.row} bot_image_src={[imagePath('sport/2.1.png'), imagePath('sport/2.2.png'), imagePath('sport/2.3.png'), imagePath('sport/2.4.png')]} top_image_row_text={content.category_sport.top_row} top_image_src={[imagePath('sport/1.1.png'), imagePath('sport/1.2.png')]} />
+          <BbccategoryHeader header={content.header_newsbeat} />
+          <BbcimageRow handleClick={this.HandleOnClick} images_src={[imagePath('newsbeat/1.png'), imagePath('newsbeat/2.png'), imagePath('newsbeat/3.png'), imagePath(('newsbeat/4.png'))]} images_text={content.image_row_newsbeat} />
+          <BbccategoryHeader header={content.header_social_media} />
+          <Bbcshare handleClick={this.HandleOnClick} />
         </PageWrapper>
-        <Bbcshare />
-        <Bbcfooter />
         <PageTest selected={this.state.lastItemClicked} questionsLeft={`${this.props.bbc.index + 1}/${this.props.bbc.questions.length}`} question={this.props.bbc.currentQuestion} nextClicked={this.NextClicked} skipClicked={this.SkipClicked} />
       </div>
     );

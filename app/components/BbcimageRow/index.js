@@ -9,9 +9,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 
-const Image = styled.div`
-  width: 220px;
-  height: 115px;
+const Image = styled.img`
+
   background-color: red;
   margin: 0px;
   padding: 0px;
@@ -31,7 +30,7 @@ const Wrapper = styled.div`
 const Header = styled.h5 `
   margin: 0px;
   padding: 0px;
-  width: 220px;
+  width: 250px;
   word-wrap: break-word;
   :hover {
   color:dodgerblue;

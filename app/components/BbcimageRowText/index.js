@@ -9,9 +9,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 
-const Image = styled.div`
-  width: 220px;
-  height: 115px;
+const Image = styled.img`
+  
   background-color: red;
   margin: 0px;
   padding: 0px;
@@ -39,6 +38,7 @@ const Header = styled.h5 `
 
 const Text = styled.p`
   margin-top: 5px;
+  width:250px;
   :hover {
   color:dodgerblue;
   cursor: pointer;
@@ -47,7 +47,6 @@ const Text = styled.p`
 
 class BbcimageRowText extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    console.log(this.props.images_src[0]);
     return (
       <Wrapper>
         {this.props.images_text.map((image, index) =>

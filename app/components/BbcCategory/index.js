@@ -13,7 +13,7 @@ import BbcimageRow from '../BbcimageRow';
 
 
 const Wrapper = styled.div`
-
+  
 `;
 const TopRow = styled.div`
   display: flex;

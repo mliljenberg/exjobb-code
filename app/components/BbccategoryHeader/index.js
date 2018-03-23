@@ -13,14 +13,15 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  margin: 30px 0px 30px 0px;
+  margin: 40px 0px 30px 0px;
 `
-const Header = styled.h3`
+const Header = styled.h4`
+margin-top: 23px;
   
 `;
 const Line = styled.div`
 border-top: solid;
-width: 90%;
+width: 88%;
 margin-top: 33px;
 margin-left: 10px;
 

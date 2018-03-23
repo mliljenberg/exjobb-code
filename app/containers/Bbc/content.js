@@ -1,7 +1,37 @@
 export const zhContent = {
   header: [{
-    menu_head: '',
-    sub_menu: ['', ''] },
+    header: '家',
+    list: ['', ''] },
+  {
+    header: '视频',
+    list: ['', ''] },
+  {
+    header: '世界',
+    list: ['', ''] },
+  {
+    header: '美国',
+    list: ['', ''] },
+  {
+    header: '联合王国',
+    list: ['', ''] },
+  {
+    header: '商业',
+    list: ['', ''] },
+  {
+    header: '技术',
+    list: ['', ''] },
+  {
+    header: '科学',
+    list: ['', ''] },
+  {
+    header: '故事',
+    list: ['', ''] },
+  {
+    header: '娱乐与艺术',
+    list: ['', ''] },
+  {
+    header: '健康',
+    list: ['', ''] },
   ],
   main_news: {
     main: {
@@ -28,7 +58,7 @@ export const zhContent = {
 
   image_row_long_reads: ['雅各布祖马的许多审判', '我的父亲，谁不想知道我的天主教神父', '你失去了一切 - 但你不明白为什么', 'FIND NEWS FOR HERE'],
 
-  rating_most_read: ['金Cattrall宣布兄弟的死亡', '巴黎袭击比利时审判的嫌疑人', '顶级象牙调查员被刺死', '雪随着气温的下降扰乱了旅行', '英国将退出关税同盟，10号坚持', '不需要的度假屋业主不能放弃', '祖马拒绝ANC要求下台', '三星继承人从S韩国监狱释放', '现实电视明星凯莉詹纳生下', 'Timberlake倒在超级碗'],
+  rating_most_read: ['金Cattrall宣布兄弟的死亡', '巴黎袭击比利时审判的嫌疑人', '顶级象牙调查员被刺死', '雪随着气温的下降扰乱了旅行', '英国将退出关税同盟，10号坚持', '不需要的度假屋业主不能放弃', '现实电视明星凯莉詹纳生下', 'Timberlake倒在超级碗'],
 
 
   category_around_world: {
@@ -43,12 +73,51 @@ export const zhContent = {
     row: ['一半的运动员面临退休的困境', 'NFL球员“被怀疑酒后驾车”', '“福特和法雷尔把合作关系提高到新的高度”', '加斯克鲁克斯队的一周'],
   },
   image_row_newsbeat: ['工作背后：17岁的承办人', '让我成为纯素食者：挑战', '超级杯赢家与Meek Mill的“团结”', 'FIND NEWS FOR HERE!'],
+  header_must_see: '必看',
+  header_most_watched: '最受关注的',
+  header_full_story: '全文',
+  header_long_read: '长阅读',
+  header_most_read: '大部分阅读',
+  header_world: '在世界各地',
+  header_sport: '运动',
+  header_newsbeat: '新闻',
+  header_social_media: '在这里找到我们',
 };
 
 export const enContent = {
   header: [{
-    menu_head: '',
-    sub_menu: ['', ''] },
+    header: 'Home',
+    list: ['', ''] },
+  {
+    header: 'Video',
+    list: ['', ''] },
+  {
+    header: 'World',
+    list: ['', ''] },
+  {
+    header: 'USA',
+    list: ['', ''] },
+  {
+    header: 'UK',
+    list: ['', ''] },
+  {
+    header: 'Business',
+    list: ['', ''] },
+  {
+    header: 'Tech',
+    list: ['', ''] },
+  {
+    header: 'Science',
+    list: ['', ''] },
+  {
+    header: 'Stories',
+    list: ['', ''] },
+  {
+    header: 'Entertainment',
+    list: ['', ''] },
+  {
+    header: 'Health',
+    list: ['', ''] },
   ],
   main_news: {
     main: {
@@ -75,7 +144,7 @@ export const enContent = {
 
   image_row_long_reads: ['The many trials of Jacob Zuma', 'My father, the Catholic priest who doesn\'t want to know me', 'You\'re losing everything - but you don’t understand why', 'Find news for this one!'],
 
-  rating_most_read: ['Kim Cattrall announces brother\'s death', 'Paris attacks suspect in Belgian trial', 'Top ivory investigator stabbed to death', 'Snow disrupts travel as temperatures fall', 'UK will leave customs union, No 10 insists', 'The unwanted holiday homes owners can\'t give away', 'Zuma \'rejects ANC request\' to step down', 'Samsung heir freed from S Korea jail', 'Reality TV star Kylie Jenner gives birth', 'Timberlake touches down at Super Bowl'],
+  rating_most_read: ['Kim Cattrall announces brother\'s death', 'Paris attacks suspect in Belgian trial', 'Top ivory investigator stabbed to death', 'Snow disrupts travel as temperatures fall', 'UK will leave customs union, No 10 insists', 'The unwanted holiday homes owners can\'t give away', 'Reality TV star Kylie Jenner gives birth', 'Timberlake touches down at Super Bowl'],
 
 
   category_around_world: {
@@ -90,4 +159,13 @@ export const enContent = {
     row: ['Half of sportspeople face retirement struggle', 'NFL player \'killed by suspected drink driver\'', 'Telepathic Ford and Farrell take partnership to new heights', 'Garth Crooks\' team of the week'],
   },
   image_row_newsbeat: ['Behind the job: The 17-year- old undertaker', 'Make Me a Vegan: The challenge', 'Super Bowl winners \'solidarity\' with Meek Mill', 'Find something for this one!'],
+  header_must_see: 'Must See',
+  header_most_watched: 'Most Watched',
+  header_full_story: 'Full Story',
+  header_long_read: 'Long Read',
+  header_most_read: 'Most Read',
+  header_world: 'Around The World',
+  header_sport: 'Sport',
+  header_newsbeat: 'Newsbeat',
+  header_social_media: 'Find us here',
 };

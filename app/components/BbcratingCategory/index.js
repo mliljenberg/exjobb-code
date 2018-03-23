@@ -15,7 +15,7 @@ const Wrapper = styled.div `
   height: ${(props) => props.height ? props.height : 200}px;
   flex-wrap: wrap;
 `;
-const Header = styled.h3 `
+const Header = styled.h4 `
   margin: 0px 0px 0px 10px;
   word-wrap: break-word;
   :hover {
@@ -23,14 +23,14 @@ const Header = styled.h3 `
   cursor: pointer;
   }
 `;
-const Index = styled.h2 `
+const Index = styled.h4 `
   color: red;
   margin: 0px 0px 0px 10px;
 `;
 const Row = styled.div `
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 35px;
   width: 450px;
 `;
 
@@ -38,7 +38,7 @@ const Row = styled.div `
 class BbcratingCategory extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <Wrapper height={((this.props.headers.length / 2) * 70)}>
+      <Wrapper height={((this.props.headers.length / 2) * 65)}>
         {this.props.headers.map((header, index) => (<Row key={header} onClick={(e) => this.props.handleClick(header, e)}><Index>{index + 1}</Index><Header>{header}</Header></Row>))}
       </Wrapper>
     );

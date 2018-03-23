@@ -14,8 +14,9 @@ const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
 `;
-const Header = styled.h3`
+const Header = styled.h4`
   margin: 5px;
+  margin-top: 20px;
   word-wrap: break-word;
   width: 250px;
   :hover {
