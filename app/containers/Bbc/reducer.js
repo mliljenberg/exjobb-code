@@ -10,6 +10,7 @@ import {
   CLICK_ACTION,
   FINISH_QUESTION_ACTION, RESET_TIMER, TICK, ZH,
 } from './constants';
+import { enQuestions, zhQuestions } from './content';
 
 const clickAction = (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => ({
   clickId,
@@ -22,45 +23,10 @@ const clickAction = (clickId, posX, posY, screenWidth, screenHeight, relativePos
   relativeTime,
 });
 // TODO: kan va så att imutable listan och map måste deffineras vi märker det
-const questionsZh = [{
-  questionText: 'bla,bla,bla',
-  actions: [],
-  correct: 0,
-  correctId: '1',
-  startTime: 0,
-  endTime: 0,
-  totalTime: 0,
-},
-{
-  questionText: 'ksjfasökdjfhöaksdjföaskdfjhöaksdjf',
-  actions: [],
-  correct: 0,
-  correctId: '1',
-  startTime: 0,
-  endTime: 0,
-  totalTime: 0,
-}];
-const questions = [{
-  questionText: 'bla,bla,bla',
-  actions: [],
-  correct: 0,
-  correctId: '1',
-  startTime: 0,
-  endTime: 0,
-  totalTime: 0,
-},
-{
-  questionText: 'ksjfasökdjfhöaksdjföaskdfjhöaksdjf',
-  actions: [],
-  correct: 0,
-  correctId: '1',
-  startTime: 0,
-  endTime: 0,
-  totalTime: 0,
-}];
+
 
 const initialState = fromJS({
-  questions,
+  questions: enQuestions,
   index: 0,
   finished: false,
   timer: 0,
@@ -73,7 +39,7 @@ function qqReducer(state = initialState, action) {
     case TICK:
       return state.updateIn(['timer'], (val) => val + 1);
     case ZH:
-      return state.set('questions', questionsZh);
+      return state.set('questions', zhQuestions);
     case RESET_TIMER:
       return state.set('timer', 0);
     case FINISH_QUESTION_ACTION:

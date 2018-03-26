@@ -38,7 +38,7 @@ margin: 0 10vw 0 10vw;
 `;
 
 const imagePath = function (path) {
-  return `https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/bbc/${path}`;
+  return `abchttps://s3.ap-northeast-2.amazonaws.com/marcus-thesis/bbc/${path}`;
 };
 
 

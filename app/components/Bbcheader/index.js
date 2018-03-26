@@ -81,7 +81,7 @@ class Bbcheader extends React.Component { // eslint-disable-line react/prefer-st
 }
 
 Bbcheader.propTypes = {
-  menus: PropTypes.arrayOf(PropTypes.objectOf({ header: PropTypes.string, list: PropTypes.array })),
+  menus: PropTypes.array,
   handleClick: PropTypes.func,
 };
 

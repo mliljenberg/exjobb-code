@@ -1,6 +1,7 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { START_TIMER } from './constants';
 import { resetTimer, tick } from './actions';
+import request from 'utils/request';
 
 const wait = (ms) => (
   new Promise((resolve) => {
@@ -19,6 +20,7 @@ export function* timer() {
 
 export default function* runTimer() {
   yield takeLatest(START_TIMER, timer);
+  const result = yield call(request, '/main', { language: 'en' });
+  console.info('Result from database: ', result);
 }
-
 

@@ -1,37 +1,37 @@
 export const zhContent = {
   header: [{
     header: '家',
-    list: ['', ''] },
+    list: ['装饰', '花园'] },
   {
     header: '视频',
-    list: ['', ''] },
+    list: ['最受关注', '热门', '新'] },
   {
     header: '世界',
-    list: ['', ''] },
+    list: ['新闻', '亚洲', '非洲', '南太平洋'] },
   {
     header: '美国',
-    list: ['', ''] },
+    list: ['新闻', '亮点', '政治', '商业'] },
   {
     header: '联合王国',
-    list: ['', ''] },
+    list: ['新闻', '亮点', '政治', '商业'] },
   {
     header: '商业',
-    list: ['', ''] },
+    list: ['市场', '全球贸易', '公司'] },
   {
     header: '技术',
-    list: ['', ''] },
+    list: ['新技术', '电话', '电脑', '工业'] },
   {
     header: '科学',
-    list: ['', ''] },
+    list: ['环境', '空间', '健康', '发现'] },
   {
     header: '故事',
-    list: ['', ''] },
+    list: ['最受关注', '热门', '新'] },
   {
     header: '娱乐与艺术',
-    list: ['', ''] },
+    list: ['电影', '音乐', '剧院'] },
   {
     header: '健康',
-    list: ['', ''] },
+    list: ['年龄', '医学', '治疗'] },
   ],
   main_news: {
     main: {
@@ -85,39 +85,40 @@ export const zhContent = {
 };
 
 export const enContent = {
-  header: [{
-    header: 'Home',
-    list: ['', ''] },
-  {
-    header: 'Video',
-    list: ['', ''] },
-  {
-    header: 'World',
-    list: ['', ''] },
-  {
-    header: 'USA',
-    list: ['', ''] },
-  {
-    header: 'UK',
-    list: ['', ''] },
-  {
-    header: 'Business',
-    list: ['', ''] },
-  {
-    header: 'Tech',
-    list: ['', ''] },
-  {
-    header: 'Science',
-    list: ['', ''] },
-  {
-    header: 'Stories',
-    list: ['', ''] },
-  {
-    header: 'Entertainment',
-    list: ['', ''] },
-  {
-    header: 'Health',
-    list: ['', ''] },
+  header: [
+    {
+      header: 'Home',
+      list: ['Decoration', 'Garden'] },
+    {
+      header: 'Video',
+      list: ['Most Viewed', 'Hot', 'New'] },
+    {
+      header: 'World',
+      list: ['News', 'Asia', 'Africa', 'South Pacific'] },
+    {
+      header: 'USA',
+      list: ['News', 'Highlights', 'Politics', 'Business'] },
+    {
+      header: 'UK',
+      list: ['News', 'Highlights', 'Politics', 'Business'] },
+    {
+      header: 'Business',
+      list: ['Markets', 'Global Trade', 'Companies'] },
+    {
+      header: 'Tech',
+      list: ['New Tech', 'Phones', 'Computers', 'Industrial'] },
+    {
+      header: 'Science',
+      list: ['Environment', 'Space', 'Health', 'Discoveries'] },
+    {
+      header: 'Stories',
+      list: ['Most Viewed', 'Hot', 'New'] },
+    {
+      header: 'Entertainment',
+      list: ['Movies', 'Music', 'Theater'] },
+    {
+      header: 'Health',
+      list: ['Age', 'Medicine', 'Therapy'] },
   ],
   main_news: {
     main: {
@@ -169,3 +170,34 @@ export const enContent = {
   header_newsbeat: 'Newsbeat',
   header_social_media: 'Find us here',
 };
+
+export const enQuestions = [{
+  questionText: 'bla,bla,bla',
+  actions: [],
+  correct: 0,
+  correctId: '1',
+  startTime: 0,
+  endTime: 0,
+  totalTime: 0,
+  questionId: 0,
+}];
+
+
+export const zhQuestions = [{
+  questionText: 'bla,bla,bla',
+  actions: [],
+  correct: 0,
+  correctId: '1',
+  startTime: 0,
+  endTime: 0,
+  totalTime: 0,
+},
+{
+  questionText: 'ksjfasökdjfhöaksdjföaskdfjhöaksdjf',
+  actions: [],
+  correct: 0,
+  correctId: '1',
+  startTime: 0,
+  endTime: 0,
+  totalTime: 0,
+}];
