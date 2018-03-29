@@ -8,10 +8,17 @@ import {
   CLICK_ACTION,
   DEFAULT_ACTION, FINISH_QUESTION_ACTION, RESET_TIMER, START_TIMER, TICK, ZH,
 } from './constants';
+import {INPUT_QUESTIONS} from "../Bbc/constants";
 
 export function defaultAction() {
   return {
     type: DEFAULT_ACTION,
+  };
+}
+export function inputQuestions(questions) {
+  return {
+    type: INPUT_QUESTIONS,
+    questions,
   };
 }
 export function clickAction(clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) {

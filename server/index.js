@@ -33,26 +33,45 @@ app.use('/test', (req, res) => {
 });
 */
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.use('/bbc/main', (req, res) => {
+app.use('/main', (req, res) => {
   console.info('request: ', req.body);
-  const sqlInitiate = `SELECT Site FROM Main WHERE Id = (SELECT max(Id) FROM Main WHERE Language = ${req.language})`;
-  con.query(sqlInitiate, (err, result) => {
+  const sqlInitiate = 'SELECT Site FROM Main WHERE Id = (SELECT max(Id) FROM Main WHERE Language = ?)';
+  con.query(sqlInitiate, req.body.language, (err, result) => {
     if (err) throw err;
-    const lastSite = result;
+    console.log(result);
+    const lastSite = result[0].Site;
     let newSite = '';
     if (lastSite === 'qq') {
       newSite = 'bbc';
     } else {
       newSite = 'qq';
     }
-    const sql = `INSERT INTO Main ("${newSite}", "${req.language}"); SELECT LAST_INSERT_ID();'`;
-    con.query(sql, (err2, result2) => {
+    const questions = [];
+    const sql = 'INSERT INTO Main (Site, Language) VALUES(?, ?)';
+    con.query(sql, [newSite, req.body.language], (err2, result2) => {
       if (err) throw err;
-      console.info('Funkar main id: ', result2);
-      mainId = result2;
+      console.info('Funkar main id: ', result2.insertId);
+      mainId = result2.insertId;
+      const sql2 = 'Select * FROM QuestionText WHERE Site=? AND Language=?';
+      con.query(sql2, [newSite, req.body.language], (err3, result3) => {
+        if (err) throw err;
+        result3.forEach((item) => {
+          questions.push({ id: item.Id,
+            question: item.Question,
+            actions: [],
+            correct: 0,
+            endTime: 0,
+            correctText: 'correct text here',
+            startTime: -1,
+            totalTime: -1,
+          });
+        });
+        console.log(questions);
+        res.send({ site: newSite, questions });
+      });
     });
-    res.send({ site: newSite });
   });
 });
 
@@ -62,11 +81,53 @@ app.use('/bbc/main', (req, res) => {
 app.use('/site', (req, res) => {
   // console.info('request: ', req);
   // console.info('res: ', res);
-  const sql = 'INSERT INTO test (firstname, lastname) VALUES ("Testar", "testsson")';
+  let questionId = -1;
+  con.query('SELECT LAST_INSERT_ID() FROM Questions', (err2, result2) => {
+    if (err2) throw err2;
+    console.info('Funkar main id: ', result2.insertId);
+    questionId = result2.insertId;
+  });
 
-  con.query(sql, (err, result) => {
-    if (err) throw err;
-    console.info('1 record inserted', result);
+
+  const questionSql = 'INSERT INTO Questions (MainId, QuestionId, Correct, StartTime, EndTime) VALUES(?,?,?,?,?)';
+  con.beginTransaction((err) => {
+    if (err) { throw err; }
+
+    // map here
+    req.body.questions.forEach((question, index) => {
+      const questionIndex = index;
+      questionId += 1;
+      con.query(questionSql, [mainId, question.questionId, question.correct, question.startTime, question.endTime], (err2, result2) => {
+        if (err2) {
+          con.rollback(() => {
+            throw err2;
+          });
+        }
+
+        const actionSql = 'INSERT INTO Actions (QuestionsId, PosX, PosY, ScreenWidth, ScreenHeight, RelativeX, RelativeY, RelativeTime) VALUES (?,?,?,?,?,?,?,?)';
+        question.actions.forEach((action, actionIndex) => {
+          con.query(actionSql, [questionId, action.posX, action.posY, action.screenWidth, action.screenHeight, action.relativeX, action.relativeY, action.relativeTime], (err3, result3) => {
+            if (err3) {
+              con.rollback(() => {
+                throw err3;
+              });
+            }
+            if (questionIndex === req.body.questions.length - 1 && actionIndex === question.actions.length - 1) {
+              // TODO: Kommer nog inte funka då det är I/O functioner
+              console.info('we are going to commit here!', questionIndex);
+              con.commit((err4) => {
+                if (err4) {
+                  con.rollback(() => {
+                    throw err;
+                  });
+                }
+                console.log('success!');
+              });
+            }
+          });
+        });
+      });
+    });
   });
   res.send({ text: 'yey fungerar!' });
 });

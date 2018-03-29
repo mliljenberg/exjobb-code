@@ -24,11 +24,12 @@ import QQSeveralImages from '../../components/QqseveralImages';
 import QQSocialMedia from '../../components/QqsocialMedia';
 import PageTest from '../../components/PageTest';
 import { enContent, zhContent } from './content';
-import { clickAction, finishQuestionAction, startTimerAction } from './actions';
+import { clickAction, finishQuestionAction, startTimerAction, inputQuestions } from './actions';
 import { Dialog, RaisedButton } from 'material-ui';
+import makeSelectHomePage from '../HomePage/selectors';
 
 const BackWrapper = styled.div`
-  background: linear-gradient(#F44336, #EF5350, white);
+  background: linear-gradient(#1565C0, #157ed8, white);
   //background: linear-gradient(to top,rgba(255,0,0,0), rgba(255,0,0,1));
   margin-top: 0px;
   margin-bottom: 100px;
@@ -99,11 +100,12 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
     super(props);
     this.state = { lastItemClicked: '', open: true };
 
-    if (zh) {
+    if (this.props.homePage.language === 'zh') {
       content = zhContent;
     } else {
       content = enContent;
     }
+    this.props.onInputQuestions(this.props.homePage.questions);
     this.HandleOnClick = this.HandleOnClick.bind(this);
     this.NextClicked = this.NextClicked.bind(this);
     this.SkipClicked = this.SkipClicked.bind(this);
@@ -233,15 +235,18 @@ Qq.propTypes = {
   onClickAction: PropTypes.func,
   finishQuestionAction: PropTypes.func,
   lastItemClicked: PropTypes.string,
+  onInputQuestions: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   qq: makeSelectQq(),
+  homePage: makeSelectHomePage(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     onStartTimer: () => { dispatch(startTimerAction()); },
+    onInputQuestions: (questions) => { dispatch(inputQuestions(questions)); },
     onClickAction: (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => { dispatch(clickAction(clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime)); },
     finishQuestionAction: (lastClickId, totalTime, endTime) => { dispatch(finishQuestionAction(lastClickId, totalTime, endTime)); },
     dispatch,

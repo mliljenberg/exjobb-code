@@ -28,19 +28,20 @@ const Img = styled.img`
   }
 `;
 const Description = styled.div`
-font-size: small;
-margin-left: 12px;
-margin-top: 0px;
-margin-bottom: 1em;
+  font-size: small;
+  margin-left: 12px;
+  margin-top: 0px;
+  margin-bottom: 1em;
+  :hover {
+    cursor: pointer;
+    color: #1E88E5;
+  }
 
 `;
 const Header = styled.div`
-margin: 10px;
-margin-bottom: 0px;
-color:#1E88E5;
-:hover {
-cursor: pointer;
-}
+  margin: 10px;
+  margin-bottom: 0px;
+  color:#1E88E5;
 `;
 
 

@@ -44,7 +44,9 @@ export default function request(url, options) {
   let fullUrl = window.location.href;
   fullUrl += url;
   console.info('request functionen....', fullUrl);
-  return fetch(fullUrl, options)
+  return fetch(fullUrl, { method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(options) })
     .then(checkStatus)
     .then(parseJSON);
 }

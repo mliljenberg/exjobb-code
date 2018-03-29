@@ -6,12 +6,18 @@
 
 import {
   CLICK_ACTION,
-  DEFAULT_ACTION, FINISH_QUESTION_ACTION, RESET_TIMER, START_TIMER, TICK, ZH,
+  DEFAULT_ACTION, FINISH_QUESTION_ACTION, INPUT_QUESTIONS, RESET_TIMER, START_TIMER, TICK, ZH,
 } from './constants';
 
 export function defaultAction() {
   return {
     type: DEFAULT_ACTION,
+  };
+}
+export function inputQuestions(questions) {
+  return {
+    type: INPUT_QUESTIONS,
+    questions,
   };
 }
 export function clickAction(clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) {

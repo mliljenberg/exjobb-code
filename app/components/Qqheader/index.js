@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 
 const Wrapper = styled.div`
-  background-color: #1565C0;
+  background-color: #EF5350;
   color:white;
   display: flex;
   flex-direction: row;

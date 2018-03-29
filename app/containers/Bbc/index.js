@@ -27,7 +27,9 @@ import BbcratingCategory from '../../components/BbcratingCategory';
 import BbccategoryHeader from '../../components/BbccategoryHeader';
 import BbcimageRow from '../../components/BbcimageRow';
 import { enContent, zhContent } from './content';
-import { clickAction, finishQuestionAction, startTimerAction } from '../Qq/actions';
+import { clickAction, finishQuestionAction, startTimerAction } from './actions';
+import makeSelectHomePage from "../HomePage/selectors";
+import {inputQuestions} from "./actions";
 
 
 let content = {};
@@ -38,7 +40,7 @@ margin: 0 10vw 0 10vw;
 `;
 
 const imagePath = function (path) {
-  return `abchttps://s3.ap-northeast-2.amazonaws.com/marcus-thesis/bbc/${path}`;
+  return `https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/bbc/${path}`;
 };
 
 
@@ -46,12 +48,12 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
   constructor(props) {
     super(props);
     this.state = { lastItemClicked: '', open: true };
-
-    if (zh) {
+    if (this.props.homePage.language === 'zh') {
       content = zhContent;
     } else {
       content = enContent;
     }
+    this.props.onInputQuestions(this.props.homePage.questions);
     this.HandleOnClick = this.HandleOnClick.bind(this);
     this.NextClicked = this.NextClicked.bind(this);
     this.SkipClicked = this.SkipClicked.bind(this);
@@ -131,17 +133,20 @@ Bbc.propTypes = {
   dispatch: PropTypes.func.isRequired,
   onStartTimer: PropTypes.func,
   onClickAction: PropTypes.func,
+  onInputQuestions: PropTypes.func,
   finishQuestionAction: PropTypes.func,
   lastItemClicked: PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
   bbc: makeSelectBbc(),
+  homePage: makeSelectHomePage(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     onStartTimer: () => { dispatch(startTimerAction()); },
+    onInputQuestions: (questions) => { dispatch(inputQuestions(questions)); },
     onClickAction: (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => { dispatch(clickAction(clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime)); },
     finishQuestionAction: (lastClickId, totalTime, endTime) => { dispatch(finishQuestionAction(lastClickId, totalTime, endTime)); },
     dispatch,
