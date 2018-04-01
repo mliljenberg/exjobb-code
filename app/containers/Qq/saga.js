@@ -1,5 +1,7 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
-import { START_TIMER } from './constants';
+import { takeLatest, call, put, all } from 'redux-saga/effects';
+
+import request from 'utils/request';
+import { FINISH_TEST, START_TIMER } from './constants';
 import { resetTimer, tick } from './actions';
 
 const wait = (ms) => (
@@ -16,8 +18,12 @@ export function* timer() {
   }
 }
 
+export function* finishTestSaga(action) {
+  yield all(action.questions.map((question) => call(request, '/question', { question })));
+}
 
 export default function* runTimer() {
   yield takeLatest(START_TIMER, timer);
+  yield takeLatest(FINISH_TEST, finishTestSaga);
 }
 

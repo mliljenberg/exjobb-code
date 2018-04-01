@@ -6,7 +6,7 @@
 
 import {
   CLICK_ACTION,
-  DEFAULT_ACTION, FINISH_QUESTION_ACTION, RESET_TIMER, START_TIMER, TICK, ZH,
+  DEFAULT_ACTION, FINISH_QUESTION_ACTION, FINISH_TEST, IMAGE_LOADED, RESET_TIMER, START_TIMER, TICK, ZH,
 } from './constants';
 import {INPUT_QUESTIONS} from "../Bbc/constants";
 
@@ -43,6 +43,11 @@ export function finishQuestionAction(lastClickId, totalTime, endTime) {
     startTime: endTime,
   };
 }
+export function imageLoaded() {
+  return {
+    type: IMAGE_LOADED,
+  };
+}
 export function startTimerAction() {
   return {
     type: START_TIMER,
@@ -58,8 +63,9 @@ export function resetTimer() {
     type: RESET_TIMER,
   };
 }
-export function languageZh() {
+export function finishTest(questions) {
   return {
-    type: ZH,
+    type: FINISH_TEST,
+    questions,
   };
 }

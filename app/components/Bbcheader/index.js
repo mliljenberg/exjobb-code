@@ -20,13 +20,28 @@ const Wrapper = styled.div`
   padding-right: 20px;
   padding-left: 20px;
   margin-top: 0;
-  .header-bootstrap {
-    background-color: #1565C0;
-    color: white;
+  li{
+  :hover{
+  color:black;
+  }
+  }
   a{
+  color: white;
+  :visited {
     color: black;
   }
+  :active{
+  color:black;
+  }
+  }
+  .header-bootstrap {
+    color: white;
+   .dropdown-toggle{
+   color: white;
+   }
   :hover {
+    color: white;
+    text-decoration: none;
   }
   }
   .text-bootstrap {
@@ -63,12 +78,12 @@ class Bbcheader extends React.Component { // eslint-disable-line react/prefer-st
           <Header>News</Header>
         </Row>
         <Row>
-          <Navbar >
-            <Nav >
+          <Navbar bsStyle={'header-bootstrap'} >
+            <Nav bsStyle={'header-bootstrap'}>
               {this.props.menus.map((item, index) => (
-                <NavDropdown eventKey={index} title={item.header} id="basic-nav-dropdown">
+                <NavDropdown bsStyle={'header-bootstrap'} eventKey={index} title={item.header} id="basic-nav-dropdown">
                   {item.list.map((nextItem, indexTwo) => (
-                    <MenuItem onClick={(e) => this.props.handleClick(nextItem, e)} eventKey={`${index}.${indexTwo}`}>{nextItem}</MenuItem>
+                    <MenuItem bsStyle={'header-bootstrap'} onClick={(e) => this.props.handleClick(nextItem, e)} eventKey={`${index}.${indexTwo}`}>{nextItem}</MenuItem>
                   ))}
                 </NavDropdown>
                 ))}

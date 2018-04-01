@@ -6,12 +6,19 @@
 
 import {
   CLICK_ACTION,
-  DEFAULT_ACTION, FINISH_QUESTION_ACTION, INPUT_QUESTIONS, RESET_TIMER, START_TIMER, TICK, ZH,
+  DEFAULT_ACTION, FINISH_QUESTION_ACTION, INPUT_QUESTIONS, RESET_TIMER, START_TIMER, TICK, ZH, IMAGE_LOADED,
 } from './constants';
+import {FINISH_TEST} from "../Qq/constants";
+
 
 export function defaultAction() {
   return {
     type: DEFAULT_ACTION,
+  };
+}
+export function imageLoaded() {
+  return {
+    type: IMAGE_LOADED,
   };
 }
 export function inputQuestions(questions) {
@@ -60,5 +67,11 @@ export function resetTimer() {
 export function languageZh() {
   return {
     type: ZH,
+  };
+}
+export function finishTest(questions) {
+  return {
+    type: FINISH_TEST,
+    questions,
   };
 }

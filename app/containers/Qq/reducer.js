@@ -8,7 +8,7 @@
 import { fromJS } from 'immutable';
 import {
   CLICK_ACTION,
-  FINISH_QUESTION_ACTION, RESET_TIMER, TICK, ZH,
+  FINISH_QUESTION_ACTION, IMAGE_LOADED, RESET_TIMER, TICK, ZH,
 } from './constants';
 import {INPUT_QUESTIONS} from "../Bbc/constants";
 
@@ -58,6 +58,7 @@ const initialState = fromJS({
   timer: 0,
   currentQuestion: 'bla,bla,bla',
   correctText: 'abc',
+  imagesLoaded: 0,
 });
 
 
@@ -65,6 +66,8 @@ function qqReducer(state = initialState, action) {
   switch (action.type) {
     case TICK:
       return state.updateIn(['timer'], (val) => val + 1);
+    case IMAGE_LOADED:
+      return state.updateIn(['imagesLoaded'], (val) => val + 1);
     case INPUT_QUESTIONS:
       let state2 = state;
       state2 = state2.set('questions', fromJS(action.questions));
@@ -76,7 +79,6 @@ function qqReducer(state = initialState, action) {
     case FINISH_QUESTION_ACTION:
       console.log(state);
       let state1 = state;
-      // TODO: denna är fel vi vill hämta correcta svaret
       if (action.lastClickId === state.get('correctText')) {
         state1 = state1.setIn(['questions', state.get('index'), 'correct'], 1);
       }
@@ -85,7 +87,8 @@ function qqReducer(state = initialState, action) {
       if (state.get('index') < 12) {
         state1 = state1.setIn(['questions', state.get('index') + 1, 'startTime'], action.startTime);
         state1 = state1.updateIn(['index'], (val) => val + 1);
-        state1 = state1.set(['currentQuestion'], state1.getIn(['questions', state1.get('index'), 'question']));
+        state1 = state1.set('currentQuestion', state1.getIn(['questions', state1.get('index'), 'question']));
+        state1 = state1.set(['correctText'], state1.getIn(['questions', state1.get('index'), 'correctText']));
       } else {
         state1 = state1.set('finished', true);
       }

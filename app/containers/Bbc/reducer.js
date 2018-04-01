@@ -8,7 +8,7 @@
 import { fromJS } from 'immutable';
 import {
   CLICK_ACTION,
-  FINISH_QUESTION_ACTION, INPUT_QUESTIONS, RESET_TIMER, TICK
+  FINISH_QUESTION_ACTION, INPUT_QUESTIONS, RESET_TIMER, TICK, IMAGE_LOADED
 } from './constants';
 import { enQuestions, zhQuestions } from './content';
 
@@ -32,6 +32,7 @@ const initialState = fromJS({
   timer: 0,
   currentQuestion: 'bla,bla,bla',
   correctText: 'bla',
+  imagesLoaded: 0,
 });
 
 
@@ -43,6 +44,8 @@ function bbcReducer(state = initialState, action) {
       state2 = state2.set('currentQuestion', action.questions[0].question);
       state2 = state2.set('correctText', action.questions[0].correctText);
       return state2;
+    case IMAGE_LOADED:
+      return state.updateIn(['imagesLoaded'], (val) => val + 1);
     case TICK:
       return state.updateIn(['timer'], (val) => val + 1);
     case RESET_TIMER:
@@ -59,6 +62,7 @@ function bbcReducer(state = initialState, action) {
         state1 = state1.setIn(['questions', state.get('index') + 1, 'startTime'], action.startTime);
         state1 = state1.updateIn(['index'], (val) => val + 1);
         state1 = state1.set(['currentQuestion'], state1.getIn(['questions', state1.get('index'), 'question']));
+        state1 = state1.set(['correctText'], state1.getIn(['questions', state1.get('index'), 'correctText']));
       } else {
         state1 = state1.set('finished', true);
       }

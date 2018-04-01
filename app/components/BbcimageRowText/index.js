@@ -50,7 +50,7 @@ class BbcimageRowText extends React.Component { // eslint-disable-line react/pre
     return (
       <Wrapper>
         {this.props.images_text.map((image, index) =>
-          (<div><Image src={this.props.images_src[index]} onClick={(e) => this.props.handleClick(image.header, e)} /><Header onClick={(e) => this.props.handleClick(image.header, e)}>{image.header}</Header><Text onClick={(e) => this.props.handleClick(image.header, e)}>{image.text}</Text></div>)
+          (<div><Image onLoad={this.props.handleLoad} src={this.props.images_src[index]} onClick={(e) => this.props.handleClick(image.header, e)} /><Header onClick={(e) => this.props.handleClick(image.header, e)}>{image.header}</Header><Text onClick={(e) => this.props.handleClick(image.header, e)}>{image.text}</Text></div>)
         )}
       </Wrapper>
     );
@@ -66,6 +66,7 @@ BbcimageRowText.propTypes = {
   ),
   images_src: PropTypes.array,
   handleClick: PropTypes.func.isRequired,
+  handleLoad: PropTypes.func.isRequired,
 };
 
 export default BbcimageRowText;

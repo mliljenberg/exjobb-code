@@ -1,4 +1,10 @@
 export const zhContent = {
+  ads_src: {
+    banner_top: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner1.png',
+    banner_mid: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner2.png',
+    side_big: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/ad2-zh.png',
+    side_small: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/ad-zh.jpg',
+  },
   main_header: {
     box1: {
       row1: ['新闻', '图片', '军事'],
@@ -76,6 +82,12 @@ export const zhContent = {
 
 };
 export const enContent = {
+  ads_src: {
+    banner_top: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner-en.jpeg',
+    banner_mid: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner2-en.jpeg',
+    side_big: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/ad1-en.png',
+    side_small: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/ad-en.jpg',
+  },
   main_header: {
     box1: {
       row1: ['News', 'Images', 'Military'],

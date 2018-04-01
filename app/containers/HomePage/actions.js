@@ -14,11 +14,12 @@ export function startTest(language) {
     language,
   };
 }
-export function testReady(language, site, questions) {
+export function testReady(language, site, questions, mainId) {
   return {
     type: TEST_READY,
     language,
     site,
     questions,
+    mainId,
   };
 }

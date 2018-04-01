@@ -35,7 +35,7 @@ class BbcbigImage extends React.Component { // eslint-disable-line react/prefer-
   render() {
     return (
       <div>
-        <Image onClick={(e) => this.props.handleClick(this.props.header, e)} src={this.props.src} alt={'Something went wrong'} />
+        <Image onLoad={this.props.handleLoad} onClick={(e) => this.props.handleClick(this.props.header, e)} src={this.props.src} alt={'Something went wrong'} />
         <Header onClick={(e) => this.props.handleClick(this.props.header, e)}>{this.props.header}</Header>
       </div>
     );
@@ -46,6 +46,7 @@ BbcbigImage.propTypes = {
   src: PropTypes.string.isRequired,
   header: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
+  handleLoad: PropTypes.func.isRequired,
 };
 
 export default BbcbigImage;

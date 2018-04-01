@@ -91,6 +91,14 @@ if (!window.Intl) {
   render(translationMessages);
 }
 
+
+window.addEventListener('keydown', (e) => {
+  if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70) || (e.keyCode === 91) || (e.keyCode === 17) || (e.keyCode === 224) || (e.keyCode === 93)) {
+    alert('Please don\'t use the search function!');
+    e.preventDefault();
+  }
+  console.log(e.keyCode);
+});
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,
 // we do not want it installed

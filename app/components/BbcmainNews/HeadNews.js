@@ -43,7 +43,7 @@ class HeadNews extends React.Component { // eslint-disable-line react/prefer-sta
           <Header onClick={(e) => this.props.handleClick(this.props.header, e)}>{this.props.header}</Header>
           <Text onClick={(e) => this.props.handleClick(this.props.header, e)}>{this.props.text}</Text>
         </TextWrapper>
-        <BbcbigImage onClick={(e) => this.props.handleClick(this.props.header, e)} src={this.props.src} />
+        <BbcbigImage handleLoad={this.props.handleLoad} onClick={(e) => this.props.handleClick(this.props.header, e)} src={this.props.src} />
       </Wrapper>
     );
   }
@@ -54,6 +54,7 @@ HeadNews.propTypes = {
   text: PropTypes.string,
   src: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
+  handleLoad: PropTypes.func.isRequired,
 
 };
 

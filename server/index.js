@@ -14,7 +14,7 @@ const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngr
 const resolve = require('path').resolve;
 const app = express();
 const mysql = require('mysql');
-let mainId = -1;
+
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
@@ -53,7 +53,7 @@ app.use('/main', (req, res) => {
     con.query(sql, [newSite, req.body.language], (err2, result2) => {
       if (err) throw err;
       console.info('Funkar main id: ', result2.insertId);
-      mainId = result2.insertId;
+      const mainId = result2.insertId;
       const sql2 = 'Select * FROM QuestionText WHERE Site=? AND Language=?';
       con.query(sql2, [newSite, req.body.language], (err3, result3) => {
         if (err) throw err;
@@ -66,10 +66,11 @@ app.use('/main', (req, res) => {
             correctText: 'correct text here',
             startTime: -1,
             totalTime: -1,
+            mainId,
           });
         });
         console.log(questions);
-        res.send({ site: newSite, questions });
+        res.send({ site: newSite, questions, mainId });
       });
     });
   });
@@ -77,53 +78,79 @@ app.use('/main', (req, res) => {
 
   // Get the automatic id
 
+app.use('*/question', (req, res) => {
+  const question = req.body.question;
+  const questionSql = 'INSERT INTO Questions (MainId, QuestionId, Correct, StartTime, EndTime) VALUES(?,?,?,?,?)';
+  con.query(questionSql, [question.mainId, question.id, question.correct, question.startTime, question.endTime], (err1, result1) => {
+    if (err1) {
+      con.rollback(() => {
+        throw err1;
+      });
+    }
 
-app.use('/site', (req, res) => {
+    const questionId = result1.insertId;
+
+
+    const actionSql = 'INSERT INTO Actions (QuestionsId, PosX, PosY, ScreenWidth, ScreenHeight, RelativeX, RelativeY, RelativeTime) VALUES (?,?,?,?,?,?,?,?)';
+    question.actions.forEach((action) => {
+      con.query(actionSql, [questionId, action.posX, action.posY, action.screenWidth, action.screenHeight, action.relativePosX, action.relativePosY, action.relativeTime], (err4, result3) => {
+        if (err4) {
+          con.rollback(() => {
+            throw err4;
+          });
+        }
+      });
+    });
+  });
+  res.send({ message: 'success' });
+});
+
+/**
+app.use('/qq/site', (req, res) => {
   // console.info('request: ', req);
   // console.info('res: ', res);
   let questionId = -1;
   con.query('SELECT LAST_INSERT_ID() FROM Questions', (err2, result2) => {
     if (err2) throw err2;
-    console.info('Funkar main id: ', result2.insertId);
-    questionId = result2.insertId;
-  });
+    console.info('Funkar questionId: ', result2[0][Object.keys(result2[0])[0]]);
+    questionId = result2[0][Object.keys(result2[0])[0]];
 
 
-  const questionSql = 'INSERT INTO Questions (MainId, QuestionId, Correct, StartTime, EndTime) VALUES(?,?,?,?,?)';
-  con.beginTransaction((err) => {
-    if (err) { throw err; }
+    const questionSql = 'INSERT INTO Questions (MainId, QuestionId, Correct, StartTime, EndTime) VALUES(?,?,?,?,?)';
+    con.beginTransaction((err) => {
+      if (err) { throw err; }
 
     // map here
-    req.body.questions.forEach((question, index) => {
-      const questionIndex = index;
-      questionId += 1;
-      con.query(questionSql, [mainId, question.questionId, question.correct, question.startTime, question.endTime], (err2, result2) => {
-        if (err2) {
-          con.rollback(() => {
-            throw err2;
-          });
-        }
-
-        const actionSql = 'INSERT INTO Actions (QuestionsId, PosX, PosY, ScreenWidth, ScreenHeight, RelativeX, RelativeY, RelativeTime) VALUES (?,?,?,?,?,?,?,?)';
-        question.actions.forEach((action, actionIndex) => {
-          con.query(actionSql, [questionId, action.posX, action.posY, action.screenWidth, action.screenHeight, action.relativeX, action.relativeY, action.relativeTime], (err3, result3) => {
-            if (err3) {
-              con.rollback(() => {
-                throw err3;
-              });
-            }
-            if (questionIndex === req.body.questions.length - 1 && actionIndex === question.actions.length - 1) {
+      req.body.questions.forEach((question, index) => {
+        const questionIndex = index;
+        questionId += 1;
+        con.query(questionSql, [mainId, question.id, question.correct, question.startTime, question.endTime], (err3, result2) => {
+          if (err3) {
+            con.rollback(() => {
+              throw err3;
+            });
+          }
+          const actionSql = 'INSERT INTO Actions (QuestionsId, PosX, PosY, ScreenWidth, ScreenHeight, RelativeX, RelativeY, RelativeTime) VALUES (?,?,?,?,?,?,?,?)';
+          question.actions.forEach((action, actionIndex) => {
+            con.query(actionSql, [questionId, action.posX, action.posY, action.screenWidth, action.screenHeight, action.relativeX, action.relativeY, action.relativeTime], (err4, result3) => {
+              if (err4) {
+                con.rollback(() => {
+                  throw err4;
+                });
+              }
+              if (questionIndex === req.body.questions.length - 1 && actionIndex === question.actions.length - 1) {
               // TODO: Kommer nog inte funka då det är I/O functioner
-              console.info('we are going to commit here!', questionIndex);
-              con.commit((err4) => {
-                if (err4) {
-                  con.rollback(() => {
-                    throw err;
-                  });
-                }
-                console.log('success!');
-              });
-            }
+                console.info('we are going to commit here!', questionIndex);
+                con.commit((err4) => {
+                  if (err4) {
+                    con.rollback(() => {
+                      throw err;
+                    });
+                  }
+                  console.log('success!');
+                });
+              }
+            });
           });
         });
       });
@@ -131,7 +158,8 @@ app.use('/site', (req, res) => {
   });
   res.send({ text: 'yey fungerar!' });
 });
-app.use('/sus', (req, res) => {
+ */
+app.use('/finish', (req, res) => {
   // console.info('request: ', req);
   // console.info('res: ', res);
   const sql = 'INSERT INTO test (firstname, lastname) VALUES ("Testar", "testsson")';

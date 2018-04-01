@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import styled from 'styled-components';
+import { push } from 'react-router-redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -24,9 +25,10 @@ import QQSeveralImages from '../../components/QqseveralImages';
 import QQSocialMedia from '../../components/QqsocialMedia';
 import PageTest from '../../components/PageTest';
 import { enContent, zhContent } from './content';
-import { clickAction, finishQuestionAction, startTimerAction, inputQuestions } from './actions';
-import { Dialog, RaisedButton } from 'material-ui';
+import { clickAction, finishQuestionAction, startTimerAction, inputQuestions, imageLoaded, finishTest } from './actions';
+import { CircularProgress, Dialog, RaisedButton } from 'material-ui';
 import makeSelectHomePage from '../HomePage/selectors';
+
 
 const BackWrapper = styled.div`
   background: linear-gradient(#1565C0, #157ed8, white);
@@ -74,6 +76,11 @@ const RightColumn = styled.div`
   margin: 1em;
 `;
 const CommercialColumn = styled.div`
+  width: 350px;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 const Banner = styled.img`
  //width: 750px;
@@ -81,12 +88,24 @@ const Banner = styled.img`
   margin-top: 10px;
   margin-left: 17px;
 `;
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 40vh;
+`;
+const Image = styled.img`
+  max-width: 350px;
+`;
 const customContentStyle = {
   width: '90%',
   height: '90%',
   maxHeight: 'none',
   maxWidth: 'none',
 };
+
 let content = {};
 const zh = false;
 
@@ -110,6 +129,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
     this.NextClicked = this.NextClicked.bind(this);
     this.SkipClicked = this.SkipClicked.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleImageLoaded = this.handleImageLoaded.bind(this);
   }
 
   HandleOnClick(message, event) {
@@ -137,25 +157,47 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
       this.props.finishQuestionAction(this.state.lastItemClicked, this.props.qq.timer, this.props.qq.timer);
       this.setState({ lastItemClicked: '' });
       this.props.onStartTimer();
+      if (this.props.qq.index >= 12) {
+        this.props.onFinishTest(this.props.qq.questions);
+        this.props.onNextPage('sus');
+      }
     }
   }
   SkipClicked() {
     this.props.finishQuestionAction('', this.props.qq.timer, this.props.qq.timer);
     this.setState({ lastItemClicked: '' });
     this.props.onStartTimer();
+    if (this.props.qq.index >= 12) {
+      this.props.onFinishTest(this.props.qq.questions);
+      this.props.onNextPage('sus');
+    }
   }
   handleClose = () => {
     this.setState({ open: false });
+    this.props.onStartTimer();
   };
+  handleImageLoaded() {
+    this.props.onImageLoaded();
+  }
 
 
   render() {
     const actions = (
-      <RaisedButton
-        label="Start Test"
-        primary
-        onClick={this.handleClose}
-      />
+      <LoadingWrapper>
+        <h3>Please wait while images are loading</h3>
+        <CircularProgress
+          mode="determinate"
+          value={(this.props.qq.imagesLoaded / 12) * 100}
+          size={80}
+          thickness={5}
+        />
+        <RaisedButton
+          label="Start Test"
+          primary
+          onClick={this.handleClose}
+          disabled={((this.props.qq.imagesLoaded / 12) < 1)}
+        />
+      </LoadingWrapper>
     );
     return (
       <BackWrapper>
@@ -164,42 +206,44 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
 
         <PageWrapper>
           <QQHeader handleClick={this.HandleOnClick} zh={zh} box1={content.main_header.box1} box2={content.main_header.box2} box3={content.main_header.box3} box4={content.main_header.box4} box5={content.main_header.box5} box6={content.main_header.box6} />
-          <Banner src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner1.png'} />
+          <Banner onLoad={this.handleImageLoaded} src={content.ads_src.banner_top} />
           <MainWrapper>
             <MainLeftColumn>
               <QQHeaderColumns handleClick={this.HandleOnClick} text={content.left_top_column.header1} />
               <QQText handleClick={this.HandleOnClick} text={content.left_top_column.text1} />
-              <QQImage handleClick={this.HandleOnClick} src={content.left_top_column.img1.src} text={content.left_top_column.img1.text} />
+              <QQImage handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} src={content.left_top_column.img1.src} text={content.left_top_column.img1.text} />
               <QQText handleClick={this.HandleOnClick} text={content.left_top_column.text2} />
-              <QQImage handleClick={this.HandleOnClick} src={content.left_top_column.img2.src} text={content.left_top_column.img2.text} />
+              <QQImage handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} src={content.left_top_column.img2.src} text={content.left_top_column.img2.text} />
               <QQText handleClick={this.HandleOnClick} text={content.left_top_column.text3} />
             </MainLeftColumn>
             <MainMiddleColumn>
               <QQHeaderColumns handleClick={this.HandleOnClick} text={content.mid_top_column.header1} />
               <QQText handleClick={this.HandleOnClick} text={content.mid_top_column.text1} />
-              <QQSeveralImages handleClick={this.HandleOnClick} header={content.mid_top_column.many_img1.header} src1={content.mid_top_column.many_img1.src1} src2={content.mid_top_column.many_img1.src2} src2Text={content.mid_top_column.many_img1.src2_text} src1Text={content.mid_top_column.many_img1.src1_text} />
+              <QQSeveralImages handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} header={content.mid_top_column.many_img1.header} src1={content.mid_top_column.many_img1.src1} src2={content.mid_top_column.many_img1.src2} src2Text={content.mid_top_column.many_img1.src2_text} src1Text={content.mid_top_column.many_img1.src1_text} />
               <QQText handleClick={this.HandleOnClick} text={content.mid_top_column.text2} />
-              <QQSeveralImages handleClick={this.HandleOnClick} header={content.mid_top_column.many_img2.header} src1={content.mid_top_column.many_img2.src1} src2={content.mid_top_column.many_img2.src2} src2Text={content.mid_top_column.many_img2.src2_text} src1Text={content.mid_top_column.many_img2.src1_text} />
+              <QQSeveralImages handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} header={content.mid_top_column.many_img2.header} src1={content.mid_top_column.many_img2.src1} src2={content.mid_top_column.many_img2.src2} src2Text={content.mid_top_column.many_img2.src2_text} src1Text={content.mid_top_column.many_img2.src1_text} />
               <QQText handleClick={this.HandleOnClick} text={content.mid_top_column.text3} />
             </MainMiddleColumn>
-            <CommercialColumn></CommercialColumn>
+            <CommercialColumn><Image src={content.ads_src.side_big} alt={'test'} />
+              <Image src={content.ads_src.side_small} alt={'test'} />
+            </CommercialColumn>
           </MainWrapper>
-          <Banner src={'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/banner2.png'} />
+          <Banner onLoad={this.handleImageLoaded} src={content.ads_src.banner_mid} />
 
           <CategoryWrapper>
             <LeftColumn>
               <QQHeaderColumns handleClick={this.HandleOnClick} text={content.left_category_column1.header} />
-              <QQImage handleClick={this.HandleOnClick} src={content.left_category_column1.img.src} text={content.left_category_column1.img.text} />
+              <QQImage handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} src={content.left_category_column1.img.src} text={content.left_category_column1.img.text} />
               <QQText handleClick={this.HandleOnClick} text={content.left_category_column1.text} />
             </LeftColumn>
             <MiddleColumn>
               <QQHeaderColumns handleClick={this.HandleOnClick} text={content.mid_category_column1.header} />
-              <QQImage handleClick={this.HandleOnClick} src={content.mid_category_column1.img.src} text={content.mid_category_column1.img.text} />
+              <QQImage handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} src={content.mid_category_column1.img.src} text={content.mid_category_column1.img.text} />
               <QQText handleClick={this.HandleOnClick} text={content.mid_category_column1.text} />
             </MiddleColumn>
             <RightColumn>
               <QQHeaderColumns handleClick={this.HandleOnClick} text={content.right_category_column1.header} />
-              <QQImage handleClick={this.HandleOnClick} src={content.right_category_column1.img.src} text={content.right_category_column1.img.text} />
+              <QQImage handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} src={content.right_category_column1.img.src} text={content.right_category_column1.img.text} />
               <QQText handleClick={this.HandleOnClick} text={content.right_category_column1.text} />
             </RightColumn>
           </CategoryWrapper>
@@ -207,7 +251,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
           <CategoryWrapper>
             <LeftColumn>
               <QQHeaderColumns handleClick={this.HandleOnClick} text={content.left_category_column2.header} />
-              <QQImage handleClick={this.HandleOnClick} src={content.left_category_column2.img.src} text={content.left_category_column2.img.text} />
+              <QQImage handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} src={content.left_category_column2.img.src} text={content.left_category_column2.img.text} />
               <QQText handleClick={this.HandleOnClick} text={content.left_category_column2.text} />
             </LeftColumn>
             <MiddleColumn>
@@ -216,7 +260,7 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
             </MiddleColumn>
             <RightColumn>
               <QQHeaderColumns handleClick={this.HandleOnClick} text={content.right_category_column2.header} />
-              <QQImage handleClick={this.HandleOnClick} src={content.right_category_column2.img.src} text={content.right_category_column2.img.text} />
+              <QQImage handleLoad={this.handleImageLoaded} handleClick={this.HandleOnClick} src={content.right_category_column2.img.src} text={content.right_category_column2.img.text} />
               <QQText handleClick={this.HandleOnClick} text={content.right_category_column2.text} />
             </RightColumn>
           </CategoryWrapper>
@@ -236,6 +280,9 @@ Qq.propTypes = {
   finishQuestionAction: PropTypes.func,
   lastItemClicked: PropTypes.string,
   onInputQuestions: PropTypes.func,
+  onImageLoaded: PropTypes.func,
+  onFinishTest: PropTypes.func,
+  onNextPage: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -246,7 +293,10 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     onStartTimer: () => { dispatch(startTimerAction()); },
+    onFinishTest: (questions) => { dispatch(finishTest(questions)); },
+    onImageLoaded: () => { dispatch(imageLoaded()); },
     onInputQuestions: (questions) => { dispatch(inputQuestions(questions)); },
+    onNextPage: (site) => dispatch(push(`/${site}`)),
     onClickAction: (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => { dispatch(clickAction(clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime)); },
     finishQuestionAction: (lastClickId, totalTime, endTime) => { dispatch(finishQuestionAction(lastClickId, totalTime, endTime)); },
     dispatch,

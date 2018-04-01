@@ -52,11 +52,11 @@ class QqseveralImages extends React.Component { // eslint-disable-line react/pre
         <Header>{this.props.header}</Header>
         <Wrapper>
           <div>
-            <Img onClick={(e) => this.props.handleClick(this.props.src1Text, e)} src={this.props.src1} />
+            <Img onLoad={this.props.handleLoad} onClick={(e) => this.props.handleClick(this.props.src1Text, e)} src={this.props.src1} />
             <Description onClick={(e) => this.props.handleClick(this.props.src1Text, e)} >{this.props.src1Text}</Description>
           </div>
           <div>
-            <Img onClick={(e) => this.props.handleClick(this.props.src2Text, e)} src={this.props.src2} />
+            <Img onLoad={this.props.handleLoad} onClick={(e) => this.props.handleClick(this.props.src2Text, e)} src={this.props.src2} />
             <Description onClick={(e) => this.props.handleClick(this.props.src2Text, e)}>{this.props.src2Text}</Description>
           </div>
         </Wrapper>
@@ -72,6 +72,7 @@ QqseveralImages.propTypes = {
   src2: PropTypes.string.isRequired,
   src2Text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
+  handleLoad: PropTypes.func.isRequired,
 };
 
 export default QqseveralImages;

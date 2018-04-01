@@ -44,7 +44,7 @@ class BbcimageRow extends React.Component { // eslint-disable-line react/prefer-
     return (
       <Wrapper>
         {this.props.images_text.map((image, index) =>
-          (<div><Image src={this.props.images_src[index]} onClick={(e) => this.props.handleClick(image, e)} /><Header onClick={(e) => this.props.handleClick(image, e)}>{image}</Header></div>)
+          (<div><Image onLoad={this.props.handleLoad} src={this.props.images_src[index]} onClick={(e) => this.props.handleClick(image, e)} /><Header onClick={(e) => this.props.handleClick(image, e)}>{image}</Header></div>)
         )}
       </Wrapper>
     );
@@ -55,6 +55,7 @@ BbcimageRow.propTypes = {
   images_text: PropTypes.array.isRequired,
   images_src: PropTypes.array.isRequired,
   handleClick: PropTypes.func.isRequired,
+  handleLoad: PropTypes.func.isRequired,
 };
 
 export default BbcimageRow;

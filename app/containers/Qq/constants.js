@@ -11,4 +11,6 @@ export const START_TIMER = 'START_TIMER';
 export const RESET_TIMER = 'RESET_TIMER';
 export const TICK = 'TICK';
 export const ZH = 'ZH';
+export const IMAGE_LOADED = 'IMAGE_LOADED';
 export const INPUT_QUESTIONS = 'INPUT_QUESTIONS';
+export const FINISH_TEST = 'FINISH_TEST';

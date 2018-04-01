@@ -36,7 +36,7 @@ class Qqimage extends React.Component { // eslint-disable-line react/prefer-stat
   render() {
     return (
       <Wrapper>
-        <Img onClick={(e) => this.props.handleClick(this.props.text, e)} src={this.props.src} />
+        <Img onLoad={this.props.handleLoad} onClick={(e) => this.props.handleClick(this.props.text, e)} src={this.props.src} />
         <Text onClick={(e) => this.props.handleClick(this.props.text, e)}>{this.props.text}</Text>
       </Wrapper>
     );
@@ -47,6 +47,7 @@ Qqimage.propTypes = {
   src: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
+  handleLoad: PropTypes.func.isRequired,
 };
 
 export default Qqimage;
