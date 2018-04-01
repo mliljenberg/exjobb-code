@@ -12,22 +12,24 @@ CREATE TABLE QuestionText (
   FPattern INT,
   Site VARCHAR(100) NOT NULL,
   Language VARCHAR(100) NOT NULL,
+  CorrectText VARCHAR(100),
   PRIMARY KEY(Id)
 );
 
 CREATE TABLE Sus (
   Id int NOT NULL AUTO_INCREMENT,
   MainId INT NOT NULL,
-  Question1 VARCHAR(100) NOT NULL,
-  Question2 VARCHAR(100) NOT NULL,
-  Question3 VARCHAR(100) NOT NULL,
-  Question4 VARCHAR(100) NOT NULL,
-  Question5 VARCHAR(100) NOT NULL,
-  Question6 VARCHAR(100) NOT NULL,
-  Question7 VARCHAR(100) NOT NULL,
-  Question8 VARCHAR(100) NOT NULL,
-  Question9 VARCHAR(100) NOT NULL,
-  Question10 VARCHAR(100) NOT NULL,
+  Question1 INT NOT NULL,
+  Question2 INT NOT NULL,
+  Question3 INT NOT NULL,
+  Question4 INT NOT NULL,
+  Question5 INT NOT NULL,
+  Question6 INT NOT NULL,
+  Question7 INT NOT NULL,
+  Question8 INT NOT NULL,
+  Question9 INT NOT NULL,
+  Question10 INT NOT NULL,
+  Question11 INT NOT NULL,
   PRIMARY KEY (Id),
   FOREIGN KEY(MainId) REFERENCES Main(Id)
 );
@@ -78,7 +80,7 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Click on the following news: Dow plunge nearly 700 points on Friday what triggerd it?", "DIRECT", "1", "qq", "en", "Dow plunge nearly 700 points on Friday what triggerd it?"),
 ("点击以下新闻: 道指周五暴跌近700点 为什么没有触发熔断机制？", "DIRECT", "1", "qq", "zh", "道指周五暴跌近700点 为什么没有触发熔断机制？"),
 
-("Click on the following news segment: True beauty don’t fear wrinkles", "DIRECT", "0" "qq", "en", "True beauty don’t fear wrinkles"),
+("Click on the following news segment: True beauty don’t fear wrinkles", "DIRECT", "0", "qq", "en", "True beauty don’t fear wrinkles"),
 ("点击以下新闻: 真美人无惧皱纹", "DIRECT", "0", "qq", "zh", "真美人无惧皱纹"),
 
 ("Click on the following news segment: One hundred Hongtong staff more than half hiding in the United States and Canada", "DIRECT", "1", "qq", "en", "One hundred Hongtong staff more than half hiding in the United States and Canada"),
@@ -96,7 +98,7 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Select the news article with a picture in the Real Estate category", "INDIRECT", "1", "qq", "en", "Sell now or continue to wait and see, how will the future property market go?"),
 ("选择包含房地产类别图片的新闻报道", "INDIRECT", "0", "qq", "zh", "返乡置业还是继续观望，未来楼市怎么走？"),
 
-("Select the picture with a burning airplane", "INDIRECT", "1", "qq", "en", "Russian fighter pilots last words before blowing himself up with a grenade “For my brothers""),
+("Select the picture with a burning airplane", "INDIRECT", "1", "qq", "en", "Russian fighter pilots last words before blowing himself up with a grenade ""For my brothers"""),
 ("用燃烧的飞机选择照片", "INDIRECT", "0", "qq", "zh", "俄战机飞行员最后时刻疑曝光：高喊“为了兄弟”"),
 
 ("Select the news about gold coins found in a shipwreck", "INDIRECT", "0", "qq", "en", "Treasure| Thousands of gold coins found in a century-old shipwreck"),
@@ -130,13 +132,13 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Click on the news about a challenge to become vegan", "INDIRECT", "1", "bbc", "en", "Make Me a Vegan: The challenge"),
 ("点击关于挑战的消息，成为素食主义者", "INDIRECT", "1", "bbc", "zh", "让我成为纯素食者：挑战"),
 
-("Click on the video that has to do with Indonesia", "INDIRECT", "0", "bbc", "en", "Bandung aims to be Indonesia's tech hub"),
+("Click on the video that has to do with Indonesia", "INDIRECT", "0", "bbc", "en", "Bandung aims to be Indonesia''s tech hub"),
 ("点击与印度尼西亚有关的视频", "INDIRECT", "0", "bbc", "zh", "万隆的目标是成为印尼的高科技中心"),
 
 ("Click on the news article about the president refusing to step down", "INDIRECT", "1", "bbc", "en", "Zuma rejects ANC request to step down"),
 ("点击关于总统拒绝下台的新闻文章", "INDIRECT", "1", "bbc", "zh", "祖马拒绝ANC要求下台"),
 
-("Click on the news about the killed NFL player", "INDIRECT", "0", "bbc", "en", "NFL player 'killed by suspected drink driver'"),
+("Click on the news about the killed NFL player", "INDIRECT", "0", "bbc", "en", "NFL player ''killed by suspected drink driver''"),
 ("点击关于NFL球员的消息", "INDIRECT", "0", "bbc", "zh", "NFL球员“被怀疑酒后驾车”"),
 
 ("Follow the page on Twitter", "FUNCTIONAL", "1", "bbc", "en", "Twitter"),
@@ -147,6 +149,8 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 
 -- Query to insert all the data into the tables
 INSERT INTO Main (Site, Language) VALUES("site here", "language here"); SELECT LAST_INSERT_ID();
+
+INSERT INTO Sus (MainId, Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, Question10, Question11) VALUES();
 
 INSERT INTO Questions (MainId, QuestionId, Correct, StartTime, EndTime) VALUES("main id here", "Question id here", "Correct INT", "StartTime TIME", "EndTime TIME");SELECT LAST_INSERT_ID();
 

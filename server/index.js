@@ -41,7 +41,11 @@ app.use('/main', (req, res) => {
   con.query(sqlInitiate, req.body.language, (err, result) => {
     if (err) throw err;
     console.log(result);
-    const lastSite = result[0].Site;
+    let lastSite = 'qq';
+    if (result.length > 0) {
+      lastSite = result[0].Site;
+    }
+
     let newSite = '';
     if (lastSite === 'qq') {
       newSite = 'bbc';
@@ -63,7 +67,7 @@ app.use('/main', (req, res) => {
             actions: [],
             correct: 0,
             endTime: 0,
-            correctText: 'correct text here',
+            correctText: item.CorrectText,
             startTime: -1,
             totalTime: -1,
             mainId,
@@ -159,12 +163,11 @@ app.use('/qq/site', (req, res) => {
   res.send({ text: 'yey fungerar!' });
 });
  */
-app.use('/finish', (req, res) => {
-  // console.info('request: ', req);
-  // console.info('res: ', res);
-  const sql = 'INSERT INTO test (firstname, lastname) VALUES ("Testar", "testsson")';
-
-  con.query(sql, (err, result) => {
+app.use('*/finish', (req, res) => {
+  const sql = 'INSERT INTO Sus (MainId, Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, Question10, Question11) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)';
+  const answers = [];
+  Object.values(req.body).forEach((value) => answers.push(value));
+  con.query(sql, answers, (err, result) => {
     if (err) throw err;
     console.info('1 record inserted', result);
   });

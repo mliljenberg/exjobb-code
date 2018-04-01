@@ -5,11 +5,12 @@
  */
 
 import {
-  DEFAULT_ACTION,
+  FINISH_TEST,
 } from './constants';
 
-export function defaultAction() {
+export function finishTestAction(answers) {
   return {
-    type: DEFAULT_ACTION,
+    type: FINISH_TEST,
+    answers,
   };
 }

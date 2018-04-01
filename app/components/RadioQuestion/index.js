@@ -33,8 +33,12 @@ const RowWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-const Text = styled.h4`
+const Text = styled.h5`
   margin: 20px;
+`;
+const MainText = styled.h4`
+  margin: 20px;
+  margin-bottom: 40px;
 `;
 const styles = {
   block: {
@@ -46,7 +50,7 @@ const styles = {
 
   },
   radioButton: {
-    width: '100px',
+    width: '70px',
     marginBottom: 70,
     marginTop: 20,
     marginLeft: 50,
@@ -57,14 +61,14 @@ class RadioQuestion extends React.Component { // eslint-disable-line react/prefe
   render() {
     return (
       <Wrapper>
-        <p>
+        <MainText>
           {this.props.question}
-        </p>
+        </MainText>
         <RowWrapper>
-          <Text>Strongly Agree</Text>
-          <RadioButtonGroup name="notRight" labelPosition="right" style={styles.block}>
+          <Text>Strongly Disagree / 强烈反对</Text>
+          <RadioButtonGroup name="notRight" labelPosition="right" style={styles.block} onChange={(e, v) => this.props.handleChange(this.props.questionId, v)}>
             <RadioButton
-              value="reverse"
+              value="1"
               label="1"
               style={styles.radioButton}
             />
@@ -89,7 +93,7 @@ class RadioQuestion extends React.Component { // eslint-disable-line react/prefe
               style={styles.radioButton}
             />
           </RadioButtonGroup>
-          <Text>Strongly Disagree</Text>
+          <Text>Strongly Agree / 非常同意</Text>
         </RowWrapper>
       </Wrapper>
     );
@@ -98,6 +102,8 @@ class RadioQuestion extends React.Component { // eslint-disable-line react/prefe
 
 RadioQuestion.propTypes = {
   question: PropTypes.string.isRequired,
+  questionId: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 
 };
 

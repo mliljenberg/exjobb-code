@@ -88,7 +88,7 @@ function qqReducer(state = initialState, action) {
         state1 = state1.setIn(['questions', state.get('index') + 1, 'startTime'], action.startTime);
         state1 = state1.updateIn(['index'], (val) => val + 1);
         state1 = state1.set('currentQuestion', state1.getIn(['questions', state1.get('index'), 'question']));
-        state1 = state1.set(['correctText'], state1.getIn(['questions', state1.get('index'), 'correctText']));
+        state1 = state1.set('correctText', state1.getIn(['questions', state1.get('index'), 'correctText']));
       } else {
         state1 = state1.set('finished', true);
       }
