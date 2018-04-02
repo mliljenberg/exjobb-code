@@ -34,13 +34,11 @@ export function clickAction(clickId, posX, posY, screenWidth, screenHeight, rela
     relativeTime,
   };
 }
-export function finishQuestionAction(lastClickId, totalTime, endTime) {
+export function finishQuestionAction(lastClickId, totalTime) {
   return {
     type: FINISH_QUESTION_ACTION,
     lastClickId,
     totalTime,
-    endTime,
-    startTime: endTime,
   };
 }
 export function imageLoaded() {

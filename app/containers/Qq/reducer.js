@@ -82,10 +82,11 @@ function qqReducer(state = initialState, action) {
       if (action.lastClickId === state.get('correctText')) {
         state1 = state1.setIn(['questions', state.get('index'), 'correct'], 1);
       }
+      const currentdate = new Date();
       state1 = state1.setIn(['questions', state.get('index'), 'totalTime'], action.totalTime);
-      state1 = state1.setIn(['questions', state.get('index'), 'endTime'], action.endTime);
+      state1 = state1.setIn(['questions', state.get('index'), 'endTime'], `${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`);
       if (state.get('index') < 12) {
-        state1 = state1.setIn(['questions', state.get('index') + 1, 'startTime'], action.startTime);
+        state1 = state1.setIn(['questions', state.get('index') + 1, 'startTime'], `${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`);
         state1 = state1.updateIn(['index'], (val) => val + 1);
         state1 = state1.set('currentQuestion', state1.getIn(['questions', state1.get('index'), 'question']));
         state1 = state1.set('correctText', state1.getIn(['questions', state1.get('index'), 'correctText']));

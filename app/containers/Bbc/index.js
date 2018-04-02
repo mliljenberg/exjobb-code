@@ -104,7 +104,7 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
     if (this.state.lastItemClicked === '') {
       alert('You have to click something before you can move on');
     } else {
-      this.props.finishQuestionAction(this.state.lastItemClicked, this.props.bbc.timer, this.props.bbc.timer);
+      this.props.finishQuestionAction(this.state.lastItemClicked, this.props.bbc.timer);
       this.setState({ lastItemClicked: '' });
       this.props.onStartTimer();
       if (this.props.bbc.index >= 12) {
@@ -114,7 +114,7 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
     }
   }
   SkipClicked() {
-    this.props.finishQuestionAction('', this.props.bbc.timer, this.props.bbc.timer);
+    this.props.finishQuestionAction('', this.props.bbc.timer);
     this.setState({ lastItemClicked: '' });
     this.props.onStartTimer();
     if (this.props.bbc.index >= 12) {
@@ -203,7 +203,7 @@ function mapDispatchToProps(dispatch) {
     onNextPage: (site) => dispatch(push(`/${site}`)),
     onInputQuestions: (questions) => { dispatch(inputQuestions(questions)); },
     onClickAction: (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => { dispatch(clickAction(clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime)); },
-    finishQuestionAction: (lastClickId, totalTime, endTime) => { dispatch(finishQuestionAction(lastClickId, totalTime, endTime)); },
+    finishQuestionAction: (lastClickId, totalTime, endTime) => { dispatch(finishQuestionAction(lastClickId, totalTime)); },
     dispatch,
   };
 }

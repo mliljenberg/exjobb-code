@@ -8,9 +8,8 @@
 import { fromJS } from 'immutable';
 import {
   CLICK_ACTION,
-  FINISH_QUESTION_ACTION, INPUT_QUESTIONS, RESET_TIMER, TICK, IMAGE_LOADED
+  FINISH_QUESTION_ACTION, INPUT_QUESTIONS, RESET_TIMER, TICK, IMAGE_LOADED,
 } from './constants';
-import { enQuestions, zhQuestions } from './content';
 
 const clickAction = (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => ({
   clickId,
@@ -53,13 +52,14 @@ function bbcReducer(state = initialState, action) {
     case FINISH_QUESTION_ACTION:
       console.log(state);
       let state1 = state;
-      if (action.lastClickId === state.get('correctQuestion')) {
+      if (action.lastClickId === state.get('correctText')) {
         state1 = state1.setIn(['questions', state.get('index'), 'correct'], 1);
       }
+      const currentdate = new Date();
       state1 = state1.setIn(['questions', state.get('index'), 'totalTime'], action.totalTime);
-      state1 = state1.setIn(['questions', state.get('index'), 'endTime'], action.endTime);
+      state1 = state1.setIn(['questions', state.get('index'), 'endTime'], `${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`);
       if (state.get('index') < 12) {
-        state1 = state1.setIn(['questions', state.get('index') + 1, 'startTime'], action.startTime);
+        state1 = state1.setIn(['questions', state.get('index') + 1, 'startTime'], `${currentdate.getHours()}:${currentdate.getMinutes()}:${currentdate.getSeconds()}`);
         state1 = state1.updateIn(['index'], (val) => val + 1);
         state1 = state1.set('currentQuestion', state1.getIn(['questions', state1.get('index'), 'question']));
         state1 = state1.set('correctText', state1.getIn(['questions', state1.get('index'), 'correctText']));

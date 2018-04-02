@@ -22,24 +22,10 @@ import Button from '../../components/Button';
 import { sendToDB } from './actions';
 
 export class Test extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor(props) {
-    super(props);
-
-    this.buttonClicked = this.buttonClicked.bind(this);
-  }
-
-  buttonClicked(e) {
-    console.info('button was Clicked', e);
-    this.props.onSendToDB();
-  }
   render() {
     return (
       <div>
-        <Helmet>
-          <title>Test</title>
-          <meta name="description" content="Description of Test" />
-        </Helmet>
-        <Button text={'Click Me!'} onClick={this.buttonClicked} />
+        Thank You for helping me complete my master thesis!
       </div>
     );
   }

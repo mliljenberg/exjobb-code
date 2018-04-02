@@ -30,6 +30,7 @@ CREATE TABLE Sus (
   Question9 INT NOT NULL,
   Question10 INT NOT NULL,
   Question11 INT NOT NULL,
+  Sum Int NOT NULL,
   PRIMARY KEY (Id),
   FOREIGN KEY(MainId) REFERENCES Main(Id)
 );
@@ -41,6 +42,7 @@ CREATE TABLE Questions (
   Correct INT,
   StartTime TIME,
   EndTime TIME,
+  Time INT,
   PRIMARY KEY (Id),
   FOREIGN KEY(MainId) REFERENCES Main(Id),
   FOREIGN KEY(QuestionId) REFERENCES QuestionText(Id)
@@ -83,7 +85,7 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Click on the following news segment: True beauty don’t fear wrinkles", "DIRECT", "0", "qq", "en", "True beauty don’t fear wrinkles"),
 ("点击以下新闻: 真美人无惧皱纹", "DIRECT", "0", "qq", "zh", "真美人无惧皱纹"),
 
-("Click on the following news segment: One hundred Hongtong staff more than half hiding in the United States and Canada", "DIRECT", "1", "qq", "en", "One hundred Hongtong staff more than half hiding in the United States and Canada"),
+("Click on the following news segment: One hundred Hongkong staff more than half hiding in the United States and Canada", "DIRECT", "1", "qq", "en", "One hundred Hongkong staff more than half hiding in the United States and Canada"),
 ("点击以下新闻: 百名红通人员归案过半 藏匿在美国加拿大者最多", "DIRECT", "1", "qq", "zh", "百名红通人员归案过半 藏匿在美国加拿大者最多"),
 
 ("Click on the following news segment: 7-year-old boy earns hundreds of thousands determins to financialy support parents", "DIRECT", "0", "qq", "en", "7-year-old boy earns hundreds of thousands determins to financialy support parents"),
@@ -104,18 +106,17 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Select the news about gold coins found in a shipwreck", "INDIRECT", "0", "qq", "en", "Treasure| Thousands of gold coins found in a century-old shipwreck"),
 ("选择关于沉船中发现的金币的新闻", "INDIRECT", "0", "qq", "zh", "藏宝图| 百年沉船中发现价值3.2亿黄金"),
 
-
 ("In the menu Click on: Phones", "MENU", "1", "bbc", "en", "Phones"),
 ("在菜单中选择：电话", "MENU", "1", "bbc", "zh", "电话"),
 
 ("In the menu Click on: Music", "MENU", "1", "bbc", "en", "Music"),
 ("在菜单中选择：音乐", "MENU", "1", "bbc", "zh", "音乐"),
 
-("In the menu Click on: US Politics", "MENU", "1", "bbc", "en", "Politics"),
-("在菜单中选择：美国政治", "MENU", "1", "bbc", "zh", "政治"),
+("In the menu Click on: USA Politics", "MENU", "1", "bbc", "en", "Politics"),
+("在菜单中点击：美国政治", "MENU", "1", "bbc", "zh", "政治"),
 
-("In the menu Click on: News about Africa", "MENU", "1", "bbc", "en", "Africa"),
-("在菜单中选择：关于非洲的新闻", "MENU", "1", "bbc", "zh", "非洲"),
+("In the menu Click on: Africa", "MENU", "1", "bbc", "en", "Africa"),
+("在菜单中点击：非洲", "MENU", "1", "bbc", "zh", "非洲"),
 
 ("Click on the following news segment: Breastfeeding mother sells milk on street", "DIRECT", "1", "bbc", "en", "Breastfeeding mother sells milk on street"),
 ("点击以下新闻: 母乳喂养的母亲在街上卖牛奶", "DIRECT", "1", "bbc", "zh", "母乳喂养的母亲在街上卖牛奶"),
@@ -132,14 +133,14 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Click on the news about a challenge to become vegan", "INDIRECT", "1", "bbc", "en", "Make Me a Vegan: The challenge"),
 ("点击关于挑战的消息，成为素食主义者", "INDIRECT", "1", "bbc", "zh", "让我成为纯素食者：挑战"),
 
-("Click on the video that has to do with Indonesia", "INDIRECT", "0", "bbc", "en", "Bandung aims to be Indonesia''s tech hub"),
-("点击与印度尼西亚有关的视频", "INDIRECT", "0", "bbc", "zh", "万隆的目标是成为印尼的高科技中心"),
+("Click on the news that has to do with Indonesia", "INDIRECT", "0", "bbc", "en", "Bandung aims to be Indonesia''s tech hub"),
+("点击与印尼有关的新闻", "INDIRECT", "0", "bbc", "zh", "万隆的目标是成为印尼的高科技中心"),
 
 ("Click on the news article about the president refusing to step down", "INDIRECT", "1", "bbc", "en", "Zuma rejects ANC request to step down"),
 ("点击关于总统拒绝下台的新闻文章", "INDIRECT", "1", "bbc", "zh", "祖马拒绝ANC要求下台"),
 
-("Click on the news about the killed NFL player", "INDIRECT", "0", "bbc", "en", "NFL player ''killed by suspected drink driver''"),
-("点击关于NFL球员的消息", "INDIRECT", "0", "bbc", "zh", "NFL球员“被怀疑酒后驾车”"),
+("Click on the news about the killed NFL player", "INDIRECT", "0", "bbc", "en", "NFL player killed by a suspected drunk driver"),
+("点击关于NFL球员的消息", "INDIRECT", "0", "bbc", "zh", "NFL球员被一名怀疑醉酒的司机杀死"),
 
 ("Follow the page on Twitter", "FUNCTIONAL", "1", "bbc", "en", "Twitter"),
 ("按照Twitter上的页面", "FUNCTIONAL", "1", "bbc", "zh", "Twitter"),
@@ -157,3 +158,9 @@ INSERT INTO Questions (MainId, QuestionId, Correct, StartTime, EndTime) VALUES("
 INSERT INTO Actions (QuestionsId, PosX, PosY, ScreenWidth, ScreenHeight, RelativeX, RelativeY, RelativeTime) VALUES ("QuestionsId int","PosX int","PosY int","ScreenWidth int","ScreenHeight int","RelativeX int","RelativeY int","RelativeTime TIME");
 
 INSERT INTO Sus (MainId, Question1, Question2... ) VALUES("MainId", "Question1", "Question2...");
+
+ALTER TABLE QuestionText CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Actions CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Questions CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Main CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Sus CONVERT TO CHARACTER SET UTF8;

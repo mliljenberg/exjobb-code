@@ -71,7 +71,7 @@ export const zhContent = {
   category_sport: {
     header: '周一的足球追赶',
     top_row: ['凯恩罚款后愤怒的克洛普油烟', '意大利15-46英格兰'],
-    row: ['一半的运动员面临退休的困境', 'NFL球员“被怀疑酒后驾车”', '“福特和法雷尔把合作关系提高到新的高度”', '加斯克鲁克斯队的一周'],
+    row: ['一半的运动员面临退休的困境', 'NFL球员被一名怀疑醉酒的司机杀死', '“福特和法雷尔把合作关系提高到新的高度”', '加斯克鲁克斯队的一周'],
   },
   image_row_newsbeat: ['工作背后：17岁的承办人', '让我成为纯素食者：挑战', '超级杯赢家与Meek Mill的“团结”', '说唱歌手在法庭上播放自己的歌曲'],
   header_must_see: '必看',
@@ -159,7 +159,7 @@ export const enContent = {
   category_sport: {
     header: 'Monday\'s football catch-up',
     top_row: ['Angry Klopp fumes after Kane penalty', 'Italy 15-46 England'],
-    row: ['Half of sportspeople face retirement struggle', 'NFL player \'killed by suspected drink driver\'', 'Telepathic Ford and Farrell take partnership to new heights', 'Garth Crooks\' team of the week'],
+    row: ['Half of sportspeople face retirement struggle', 'NFL player killed by a suspected drunk driver', 'Telepathic Ford and Farrell take partnership to new heights', 'Garth Crooks\' team of the week'],
   },
   image_row_newsbeat: ['Behind the job: The 17-year- old undertaker', 'Make Me a Vegan: The challenge', 'Super Bowl winners \'solidarity\' with Meek Mill', 'Rapper plays his own song in court'],
   header_must_see: 'Must See',
