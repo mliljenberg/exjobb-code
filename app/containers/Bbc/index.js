@@ -107,20 +107,12 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
       this.props.finishQuestionAction(this.state.lastItemClicked, this.props.bbc.timer);
       this.setState({ lastItemClicked: '' });
       this.props.onStartTimer();
-      if (this.props.bbc.index >= 12) {
-        this.props.onFinishTest(this.props.bbc.questions);
-        this.props.onNextPage('sus');
-      }
     }
   }
   SkipClicked() {
     this.props.finishQuestionAction('', this.props.bbc.timer);
     this.setState({ lastItemClicked: '' });
     this.props.onStartTimer();
-    if (this.props.bbc.index >= 12) {
-      this.props.onFinishTest(this.props.bbc.questions);
-      this.props.onNextPage('sus');
-    }
   }
   handleClose = () => {
     this.setState({ open: false });
@@ -129,6 +121,10 @@ export class Bbc extends React.Component { // eslint-disable-line react/prefer-s
 
 
   render() {
+    if (this.props.bbc.finished) {
+      this.props.onFinishTest(this.props.bbc.questions);
+      this.props.onNextPage('sus');
+    }
     const actions = (
       <LoadingWrapper>
         <h3>Please wait while images are loading</h3>

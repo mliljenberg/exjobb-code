@@ -157,20 +157,12 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
       this.props.finishQuestionAction(this.state.lastItemClicked, this.props.qq.timer);
       this.setState({ lastItemClicked: '' });
       this.props.onStartTimer();
-      if (this.props.qq.index >= 12) {
-        this.props.onFinishTest(this.props.qq.questions);
-        this.props.onNextPage('sus');
-      }
     }
   }
   SkipClicked() {
     this.props.finishQuestionAction('', this.props.qq.timer);
     this.setState({ lastItemClicked: '' });
     this.props.onStartTimer();
-    if (this.props.qq.index >= 12) {
-      this.props.onFinishTest(this.props.qq.questions);
-      this.props.onNextPage('sus');
-    }
   }
   handleClose = () => {
     this.setState({ open: false });
@@ -182,6 +174,10 @@ export class Qq extends React.Component { // eslint-disable-line react/prefer-st
 
 
   render() {
+    if (this.props.qq.finished) {
+      this.props.onFinishTest(this.props.qq.questions);
+      this.props.onNextPage('sus');
+    }
     const actions = (
       <LoadingWrapper>
         <h3>Please wait while images are loading</h3>
