@@ -15,29 +15,31 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
 import { push } from 'react-router-redux';
+import injectSaga from 'utils/injectSaga';
+import { compose } from 'redux';
+import injectReducer from 'utils/injectReducer';
 
 
 import { CircularProgress, MenuItem, Paper, RaisedButton, SelectField } from 'material-ui';
 import { startTest } from './actions';
 import makeSelectHomePage from './selectors';
 import reducer from './reducer';
-import { compose } from 'redux';
 import saga from './saga';
-
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
-
-
-const zhText = 'chiese here';
-const enText = 'english text here';
-
 const Wrapper = styled.div`
 background-color: white;
 height: 100vh;
 `;
 
-const Text = styled.div`
-  text-align: center;
+const SmallWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+`;
+
+const Text = styled.p`
+  text-align: left;
   font-size: larger;
 
 `;
@@ -52,12 +54,20 @@ align-items: center;
 const ButtonWrapper = styled.div`
   margin: 20px;
   margin-top: 50px;
+  align-self: center;
 `;
 
 const stylePaper = {
   margin: '20px 10vw 0 10vw',
 };
 
+const enText = (<div><Text> Hi and thanks for participating in the following test.<br /> <br />
+  My name is Marcus and this test is a part of my master thesis research, which explores cross-cultural website usability. The test will take roughly 5-10 minutes and the format is as follows: Once the test finished loading, you will be shown a news site.  On this news site, you will be asked to find different articles and images. In some instances, you will be asked to directly click on an item based on its description. In other cases, a more general description will be given. After clicking on the item you are asked to find, please click next to proceed. If you are unable to complete a certain task, you can skip it. All solutions to the required tasks can be found on the website, so please aim to complete the task before skipping it. After the 13 tasks, you will be asked a couple of general questions on the site you used.
+  <br /><br /> IMPORTANT:  Please avoid using search tools since this will make your results meaningless. Also please try to do the test without interruptions since your actions and click patterns will be timed and recorded. Use a computer for this test it is not meant to be done on a phone! </Text></div>);
+
+const zhText = (<Text>嗨，感谢您参加以下测试。<br /><br />
+  我的名字是马库斯，这个测试是我的硕士论文研究的一部分，它探索了跨文化网站的可用性。测试将花费大约5-10分钟，格式如下：一旦测试完成加载，您将看到一个新闻网站。在这个新闻网站上，你会被要求找到不同的文章和图像。在某些情况下，系统会要求您根据其描述直接点击某个项目。在其他情况下，将给出更一般的描述。点击您要查找的项目后，请点击下一步继续。如果您无法完成某个任务，则可以跳过它。所有必要任务的解决方案都可以在网站上找到，所以请在跳过之前完成任务。完成13个任务后，您会在您使用的网站上询问几个常见问题。
+  <br /><br />重要提示：请避免使用搜索工具，因为这会使结果变得毫无意义。此外，请尝试不中断地进行测试，因为您的操作和点击模式将被定时和记录。使用电脑进行这项测试并不意味着要在手机上完成！</Text>);
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   state = {
@@ -81,7 +91,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
     if (this.state.value === null) {
       start = (
         <div>
-          <Text>Welcome to my master thesis test! Start by selecting language!</Text>
+          <Text>Welcome start by selecting language!</Text>
           <SelectField
             floatingLabelText="Select language"
             value={this.state.value}
@@ -104,25 +114,23 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
       );
     } else if (!this.state.value) {
       start = (
-        <div>
+        <SmallWrapper>
           <Text>
             {zhText}
           </Text>
           <ButtonWrapper>
             <RaisedButton onClick={this.startTest} primary> 开始 </RaisedButton>
           </ButtonWrapper>
-        </div>
+        </SmallWrapper>
       );
     } else if (this.state.value) {
       start = (
-        <div>
-          <Text>
-            {enText}
-          </Text>
+        <SmallWrapper>
+          {enText}
           <ButtonWrapper>
             <RaisedButton onClick={this.startTest} primary> Start </RaisedButton>
           </ButtonWrapper>
-        </div>
+        </SmallWrapper>
       );
     }
 

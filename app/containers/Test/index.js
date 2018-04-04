@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet';
 //  import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import styled from 'styled-components';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -21,12 +22,21 @@ import saga from './saga';
 import Button from '../../components/Button';
 import { sendToDB } from './actions';
 
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  padding-top: 50px;
+`;
 export class Test extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
-        Thank You for helping me complete my master thesis!
-      </div>
+      <Wrapper>
+        <p>Thank You for helping me complete my master thesis! <br /> If you have any questions or feedback please send me a <a href="mailto:dic13mli@student.lu.se">email.</a> </p>
+      </Wrapper>
     );
   }
 }

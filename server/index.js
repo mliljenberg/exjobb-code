@@ -20,7 +20,8 @@ const mysql = require('mysql');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/main', (req, res) => {
+app.use('*/main', (req, res) => {
+  console.log('/main reached');
   const sqlInitiate = 'SELECT Site FROM Main WHERE Id = (SELECT max(Id) FROM Main WHERE Language = ?)';
   con.query(sqlInitiate, req.body.language, (err, result) => {
     if (err) throw err;
@@ -64,6 +65,7 @@ app.use('/main', (req, res) => {
   // Get the automatic id
 
 app.use('*/question', (req, res) => {
+  console.log('/question reached');
   const question = req.body.question;
   const questionSql = 'INSERT INTO Questions (MainId, QuestionId, Correct, StartTime, EndTime, Time) VALUES(?,?,?,?,?,?)';
   con.query(questionSql, [question.mainId, question.id, question.correct, question.startTime, question.endTime, question.totalTime], (err1, result1) => {
@@ -90,6 +92,7 @@ app.use('*/question', (req, res) => {
   res.send({ message: 'success' });
 });
 app.use('*/finish', (req, res) => {
+  console.log('/finish reached');
   const sql = 'INSERT INTO Sus (MainId, Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, Question10, Question11, Sum) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)';
   const answers = [];
   let sum = 0;
@@ -139,13 +142,23 @@ app.listen(port, host, (err) => {
 
 
 const con = mysql.createConnection({
-  host: 'marcusdb.cg05xtnsvhwq.ap-northeast-2.rds.amazonaws.com',
+  host: 'aa1fk59xwsw9wmv.cg05xtnsvhwq.ap-northeast-2.rds.amazonaws.com',
   user: 'Marcus',
   password: 'marcusl36',
-  database: 'marcusdb',
+  database: 'ebdb',
 });
 
+/*
+const con = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'test',
+});
+*/
+
 con.connect((err) => {
-  if (err) throw err;
+  if (err) { console.log('sql connect err'); throw err; }
+  console.log('connection to database succsesfull');
 });
 
