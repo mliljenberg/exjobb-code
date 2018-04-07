@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { push } from 'react-router-redux';
 
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -21,7 +22,7 @@ import saga from './saga';
 import RadioQuestion from '../../components/RadioQuestion';
 import { finishTestAction } from './actions';
 import makeSelectHomePage from '../HomePage/selectors';
-import {push} from "react-router-redux";
+
 
 
 const Wrapper = styled.div`

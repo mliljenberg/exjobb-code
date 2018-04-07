@@ -2,6 +2,8 @@ CREATE TABLE Main (
   Id int NOT NULL AUTO_INCREMENT,
   Site VARCHAR(100) NOT NULL,
   Language VARCHAR(100) NOT NULL,
+  Gender int NOT NULL,
+  Age int NOT NULL,
   PRIMARY KEY(Id)
 );
 
@@ -62,8 +64,12 @@ CREATE TABLE Actions (
   FOREIGN KEY(QuestionsId) REFERENCES Questions(Id)
 );
 
--- Delete all databases
-DROP TABLE Actions; DROP TABLE Questions; DROP TABLE QuestionText; DROP TABLE Sus; DROP TABLE Main;
+ALTER TABLE QuestionText CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Actions CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Questions CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Main CONVERT TO CHARACTER SET UTF8;
+ALTER TABLE Sus CONVERT TO CHARACTER SET UTF8;
+
 
 -- Create queries for inputing all the questions into question text
 INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText) VALUES
@@ -103,20 +109,20 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Select the picture with a burning airplane", "INDIRECT", "1", "qq", "en", "Russian fighter pilots last words before blowing himself up with a grenade ""For my brothers"""),
 ("用燃烧的飞机选择照片", "INDIRECT", "0", "qq", "zh", "俄战机飞行员最后时刻疑曝光：高喊“为了兄弟”"),
 
-("Select the news about gold coins found in a shipwreck", "INDIRECT", "0", "qq", "en", "Treasure| Thousands of gold coins found in a century-old shipwreck"),
-("选择关于沉船中发现的金币的新闻", "INDIRECT", "0", "qq", "zh", "藏宝图| 百年沉船中发现价值3.2亿黄金"),
+("Select the news about gold coins found in a shipwreck", "INDIRECT", "0", "qq", "en", "Treasure|   Thousands of gold coins found in a century-old shipwreck"),
+("选择关于沉船中发现的金币的新闻", "INDIRECT", "0", "qq", "zh", "藏宝图|   百年沉船中发现价值3.2亿黄金"),
 
 ("In the menu Click on: Phones", "MENU", "1", "bbc", "en", "Phones"),
-("在菜单中选择：电话", "MENU", "1", "bbc", "zh", "电话"),
+("在导航菜单中选择: 电话", "MENU", "1", "bbc", "zh", "电话"),
 
 ("In the menu Click on: Music", "MENU", "1", "bbc", "en", "Music"),
-("在菜单中选择：音乐", "MENU", "1", "bbc", "zh", "音乐"),
+("在导航菜单中选择：音乐", "MENU", "1", "bbc", "zh", "音乐"),
 
 ("In the menu Click on: USA Politics", "MENU", "1", "bbc", "en", "Politics"),
-("在菜单中点击：美国政治", "MENU", "1", "bbc", "zh", "政治"),
+("在导航菜单中选择：美国政治", "MENU", "1", "bbc", "zh", "政治"),
 
 ("In the menu Click on: Africa", "MENU", "1", "bbc", "en", "Africa"),
-("在菜单中点击：非洲", "MENU", "1", "bbc", "zh", "非洲"),
+("在导航菜单中选择：非洲", "MENU", "1", "bbc", "zh", "非洲"),
 
 ("Click on the following news segment: Breastfeeding mother sells milk on street", "DIRECT", "1", "bbc", "en", "Breastfeeding mother sells milk on street"),
 ("点击以下新闻: 母乳喂养的母亲在街上卖牛奶", "DIRECT", "1", "bbc", "zh", "母乳喂养的母亲在街上卖牛奶"),
@@ -133,7 +139,7 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("Click on the news about a challenge to become vegan", "INDIRECT", "1", "bbc", "en", "Make Me a Vegan: The challenge"),
 ("点击关于挑战的消息，成为素食主义者", "INDIRECT", "1", "bbc", "zh", "让我成为纯素食者：挑战"),
 
-("Click on the news that has to do with Indonesia", "INDIRECT", "0", "bbc", "en", "Bandung aims to be Indonesia''s tech hub"),
+("Click on the news that has to do with Indonesia", "INDIRECT", "0", "bbc", "en", "Bandung aims to be Indonesia's tech hub"),
 ("点击与印尼有关的新闻", "INDIRECT", "0", "bbc", "zh", "万隆的目标是成为印尼的高科技中心"),
 
 ("Click on the news article about the president refusing to step down", "INDIRECT", "1", "bbc", "en", "Zuma rejects ANC request to step down"),
@@ -143,7 +149,7 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("点击关于NFL球员的消息", "INDIRECT", "0", "bbc", "zh", "NFL球员被一名怀疑醉酒的司机杀死"),
 
 ("Follow the page on Twitter", "FUNCTIONAL", "1", "bbc", "en", "Twitter"),
-("按照Twitter上的页面", "FUNCTIONAL", "1", "bbc", "zh", "Twitter"),
+("按照Twitter上的页面", "FUNCTIONAL", "1", "bbc", "zh", "Twitter");
 
 
 -- Get whether to use bbc or qq.....
@@ -159,8 +165,5 @@ INSERT INTO Actions (QuestionsId, PosX, PosY, ScreenWidth, ScreenHeight, Relativ
 
 INSERT INTO Sus (MainId, Question1, Question2... ) VALUES("MainId", "Question1", "Question2...");
 
-ALTER TABLE QuestionText CONVERT TO CHARACTER SET UTF8;
-ALTER TABLE Actions CONVERT TO CHARACTER SET UTF8;
-ALTER TABLE Questions CONVERT TO CHARACTER SET UTF8;
-ALTER TABLE Main CONVERT TO CHARACTER SET UTF8;
-ALTER TABLE Sus CONVERT TO CHARACTER SET UTF8;
+-- Delete all databases
+DROP TABLE Actions; DROP TABLE Questions; DROP TABLE QuestionText; DROP TABLE Sus; DROP TABLE Main;

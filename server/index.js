@@ -37,8 +37,8 @@ app.use('*/main', (req, res) => {
       newSite = 'qq';
     }
     const questions = [];
-    const sql = 'INSERT INTO Main (Site, Language) VALUES(?, ?)';
-    con.query(sql, [newSite, req.body.language], (err2, result2) => {
+    const sql = 'INSERT INTO Main (Site, Language, Gender, Age) VALUES(?, ?, ?, ?)';
+    con.query(sql, [newSite, req.body.language, req.body.gender, req.body.age], (err2, result2) => {
       if (err) throw err;
       const mainId = result2.insertId;
       const sql2 = 'Select * FROM QuestionText WHERE Site=? AND Language=?';

@@ -1,7 +1,7 @@
 export const zhContent = {
   ad_src: 'https://s3.ap-northeast-2.amazonaws.com/marcus-thesis/qq/ad-zh.jpg',
   header: [{
-    header: '家',
+    header: '首页',
     list: ['装饰', '花园'] },
   {
     header: '视频',

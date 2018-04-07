@@ -6,7 +6,7 @@ import { testReady } from './actions';
 
 
 export function* getData(action) {
-  const result = yield call(request, 'main', { language: action.language });
+  const result = yield call(request, 'main', { language: action.language, gender: action.gender, age: action.age });
   yield put(testReady(action.language, result.site, result.questions, result.mainId));
   console.info('Result from database: ', result);
 }
