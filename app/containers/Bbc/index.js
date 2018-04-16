@@ -37,6 +37,7 @@ let content = {};
 
 const PageWrapper = styled.div`
 margin: 0 10vw 0 10vw;
+width: 1100px;
 `;
 
 const LoadingWrapper = styled.div`
@@ -199,7 +200,7 @@ function mapDispatchToProps(dispatch) {
     onNextPage: (site) => dispatch(push(`/${site}`)),
     onInputQuestions: (questions) => { dispatch(inputQuestions(questions)); },
     onClickAction: (clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime) => { dispatch(clickAction(clickId, posX, posY, screenWidth, screenHeight, relativePosX, relativePosY, relativeTime)); },
-    finishQuestionAction: (lastClickId, totalTime, endTime) => { dispatch(finishQuestionAction(lastClickId, totalTime)); },
+    finishQuestionAction: (lastClickId, totalTime) => { dispatch(finishQuestionAction(lastClickId, totalTime)); },
     dispatch,
   };
 }

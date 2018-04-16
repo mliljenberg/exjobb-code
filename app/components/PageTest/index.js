@@ -44,11 +44,11 @@ const Question = styled.div`
 const Selected = styled.div`
   margin:5px;
   width: 19vw;
-  font-size: smaller;
+  font-size: small;
   overflow-wrap: break-word;
 `;
 
-const Timer = styled.h2`
+const Timer = styled.h3`
   margin: 10px;
 `;
 const SelectedWrapper = styled.div`

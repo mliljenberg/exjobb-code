@@ -37,24 +37,23 @@ const BackWrapper = styled.div`
   margin-bottom: 100px;
   padding-top: 3em;
   padding-bottom: 3em;
-  
 `;
 const MainWrapper = styled.div`
   display:flex ;
   flex-direction: row;
 `;
 const PageWrapper = styled.div`
- width: 82vw;
+ width: 1200px;
  margin-left: 9vw;
  background-color: #fafafa;
 `;
 const MainLeftColumn = styled.div`
-  width: 350px;
+  min-width: 350px;
   margin: 1em;
 
 `;
 const MainMiddleColumn = styled.div`
-  width: 350px;
+  min-width: 350px;
   margin: 1em;
   margin-left: 3em;
 `;
@@ -63,16 +62,16 @@ const CategoryWrapper = styled.div`
   flex-direction: row;
 `;
 const LeftColumn = styled.div`
-  width: 350px;
+  min-width: 350px;
   margin: 1em;
 
 `;
 const MiddleColumn = styled.div`
-  width: 350px;
+  min-width: 350px;
   margin: 1em;
 `;
 const RightColumn = styled.div`
-  width: 350px;
+  min-width: 350px;
   margin: 1em;
 `;
 const CommercialColumn = styled.div`

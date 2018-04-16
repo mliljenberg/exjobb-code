@@ -1,3 +1,9 @@
+DROP DATABASE IF EXISTS ebdb ;
+
+CREATE DATABASE ebdb;
+
+USE ebdb;
+
 CREATE TABLE Main (
   Id int NOT NULL AUTO_INCREMENT,
   Site VARCHAR(100) NOT NULL,
@@ -85,7 +91,7 @@ INSERT INTO QuestionText (Question, Type, FPattern, Site, Language, correctText)
 ("In the menu bar select: Culture", "MENU", "0", "qq", "en", "Culture"),
 ("在菜单栏中选择：文化", "MENU", "0", "qq", "zh", "文化"),
 
-("Click on the following news: Dow plunge nearly 700 points on Friday what triggerd it?", "DIRECT", "1", "qq", "en", "Dow plunge nearly 700 points on Friday what triggerd it?"),
+("Click on the following news: Dow plunge nearly 700 points on Friday what triggerd it?", "DIRECT", "1", "qq", "en", "Dow plunge nearly 700 points on Friday what triggerd it? "),
 ("点击以下新闻: 道指周五暴跌近700点 为什么没有触发熔断机制？", "DIRECT", "1", "qq", "zh", "道指周五暴跌近700点 为什么没有触发熔断机制？"),
 
 ("Click on the following news segment: True beauty don’t fear wrinkles", "DIRECT", "0", "qq", "en", "True beauty don’t fear wrinkles"),

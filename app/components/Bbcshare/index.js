@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 
 const Wrapper = styled.div`
-  height: 200px;
+  height: 350px;
   margin-top: 50px;
 `;
 
